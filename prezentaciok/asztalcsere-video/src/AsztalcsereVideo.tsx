@@ -3,7 +3,13 @@ import { linearTiming, TransitionSeries } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
 import type React from "react";
-import { AbsoluteFill, staticFile, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  interpolate,
+  staticFile,
+  useVideoConfig,
+} from "remotion";
+import { NARRATION, SCENE_ORDER } from "./narration";
 import { Chrome } from "./Chrome";
 import { Cost } from "./scenes/Cost";
 import { Finale } from "./scenes/Finale";
@@ -14,15 +20,32 @@ import { Intro } from "./scenes/Intro";
 import { Load } from "./scenes/Load";
 import { Style } from "./scenes/Style";
 import { Surface } from "./scenes/Surface";
-import { C, DUR, EASE, TRANSITION } from "./theme";
+import { C, CLAMP, DUR, EASE, TRANSITION } from "./theme";
 
-// Frame at which each scene-to-scene transition starts on the main timeline.
-const TRANSITION_STARTS = Object.values(DUR)
-  .slice(0, -1)
-  .map(
-    (_, i, arr) =>
-      arr.slice(0, i + 1).reduce((a, b) => a + b, 0) - (i + 1) * TRANSITION,
+// Frame at which each scene starts on the main timeline.
+const SCENE_STARTS = SCENE_ORDER.map(
+  (_, i) =>
+    SCENE_ORDER.slice(0, i).reduce((sum, k) => sum + DUR[k], 0) -
+    i * TRANSITION,
+);
+const TRANSITION_STARTS = SCENE_STARTS.slice(1);
+
+// Main-timeline frames where the voice-over speaks; the music ducks under them.
+const VOICE = SCENE_ORDER.flatMap((k, i) =>
+  NARRATION[k].clips.map(
+    (c) =>
+      [
+        SCENE_STARTS[i] + c.from,
+        SCENE_STARTS[i] + c.from + c.durationInFrames,
+      ] as const,
+  ),
+);
+const musicVolume = (f: number) => {
+  const distance = Math.min(
+    ...VOICE.map(([a, b]) => (f < a ? a - f : f > b ? f - b : 0)),
   );
+  return interpolate(distance, [0, 10], [0.07, 0.17], CLAMP);
+};
 
 export const AsztalcsereVideo: React.FC = () => {
   const { fps } = useVideoConfig();
@@ -31,7 +54,7 @@ export const AsztalcsereVideo: React.FC = () => {
       <Audio
         name="Zene"
         src={staticFile("audio/music.mp3")}
-        volume={0.17}
+        volume={musicVolume}
         premountFor={fps}
       />
       {TRANSITION_STARTS.map((f) => (
@@ -47,7 +70,7 @@ export const AsztalcsereVideo: React.FC = () => {
       <TransitionSeries>
         <TransitionSeries.Sequence
           name="Intro"
-          durationInFrames={150}
+          durationInFrames={DUR.intro}
           premountFor={fps}
         >
           <Intro />
@@ -58,7 +81,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Méhsejt"
-          durationInFrames={240}
+          durationInFrames={DUR.honeycomb}
           premountFor={fps}
         >
           <Honeycomb />
@@ -69,7 +92,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Felület"
-          durationInFrames={270}
+          durationInFrames={DUR.surface}
           premountFor={fps}
         >
           <Surface />
@@ -80,7 +103,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Teherbírás"
-          durationInFrames={210}
+          durationInFrames={DUR.load}
           premountFor={fps}
         >
           <Load />
@@ -91,7 +114,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Magasság"
-          durationInFrames={240}
+          durationInFrames={DUR.height}
           premountFor={fps}
         >
           <Height />
@@ -102,7 +125,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Stílus"
-          durationInFrames={240}
+          durationInFrames={DUR.style}
           premountFor={fps}
         >
           <Style />
@@ -113,7 +136,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Költség"
-          durationInFrames={240}
+          durationInFrames={DUR.cost}
           premountFor={fps}
         >
           <Cost />
@@ -124,7 +147,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Apró betű"
-          durationInFrames={210}
+          durationInFrames={DUR.finePrint}
           premountFor={fps}
         >
           <FinePrint />
@@ -135,7 +158,7 @@ export const AsztalcsereVideo: React.FC = () => {
         />
         <TransitionSeries.Sequence
           name="Jóváhagyás"
-          durationInFrames={240}
+          durationInFrames={DUR.finale}
           premountFor={fps}
         >
           <Finale />

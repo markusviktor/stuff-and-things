@@ -1,19 +1,22 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  CanvasImage,
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { CanvasImage, interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, EASE, MONO, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+} from "../ui";
 
 const BTN_TOP = [1100, 1224, 1348] as const;
 
-export const Finale: React.FC = () => {
-  const frame = useCurrentFrame();
+const FinaleBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   const hover = interpolate(frame, [150, 158], [0, 1], CLAMP);
   const press = interpolate(frame, [170, 174, 180], [1, 0.96, 1], CLAMP);
@@ -62,21 +65,21 @@ export const Finale: React.FC = () => {
       <Audio
         name="mouse-click"
         src={staticFile("sfx/mouse-click.wav")}
-        from={170}
+        from={at(170)}
         volume={0.85}
         premountFor={fps}
       />
       <Audio
         name="thud"
         src={staticFile("audio/thud.wav")}
-        from={176}
+        from={at(176)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
-        from={196}
+        from={at(196)}
         volume={0.7}
         premountFor={fps}
       />
@@ -162,20 +165,7 @@ export const Finale: React.FC = () => {
         />
       </svg>
 
-      <div
-        style={{
-          position: "absolute",
-          top: 1520,
-          left: SIDE,
-          right: SIDE,
-          fontSize: 40,
-          lineHeight: 1.35,
-          color: C.ink2,
-        }}
-      >
-        <Reveal at={196}>A pizza az összeszerelés napján az enyém.</Reveal>
-      </div>
-      <div style={{ position: "absolute", top: 1660, left: SIDE, right: SIDE }}>
+      <div style={{ position: "absolute", top: 1500, left: SIDE, right: SIDE }}>
         <Reveal at={206} dy={10}>
           <span style={{ fontFamily: MONO, fontSize: 26, color: C.muted }}>
             CR-2026-0042 · a részletek az egyoldalas kérelemben
@@ -185,3 +175,9 @@ export const Finale: React.FC = () => {
     </Scene>
   );
 };
+
+export const Finale: React.FC = () => (
+  <SceneClock scene="finale">
+    <FinaleBody />
+  </SceneClock>
+);

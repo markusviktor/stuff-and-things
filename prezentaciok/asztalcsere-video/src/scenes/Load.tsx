@@ -1,13 +1,16 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, EASE, MONO, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+} from "../ui";
 
 const K = 920 / 230; // px per kg
 const TICKS = [0, 50, 100, 150, 200];
@@ -31,7 +34,7 @@ const Row: React.FC<{
   extra = 0,
   extraGrow = [0, 1],
 }) => {
-  const frame = useCurrentFrame();
+  const frame = useSceneFrame();
   const p = interpolate(frame, grow, [0, 1], { ...CLAMP, easing: EASE });
   const q = extra
     ? interpolate(frame, extraGrow, [0, 1], { ...CLAMP, easing: EASE })
@@ -113,36 +116,37 @@ const Row: React.FC<{
   );
 };
 
-export const Load: React.FC = () => {
-  const frame = useCurrentFrame();
+const LoadBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   return (
     <Scene>
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={20}
+        from={at(20)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={34}
+        from={at(34)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={54}
+        from={at(54)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="mouse-click"
         src={staticFile("sfx/mouse-click.wav")}
-        from={124}
+        from={at(124)}
         volume={0.85}
         premountFor={fps}
       />
@@ -242,3 +246,9 @@ export const Load: React.FC = () => {
     </Scene>
   );
 };
+
+export const Load: React.FC = () => (
+  <SceneClock scene="load">
+    <LoadBody />
+  </SceneClock>
+);

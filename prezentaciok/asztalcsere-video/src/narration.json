@@ -1,0 +1,269 @@
+{
+  "fps": 30,
+  "scenes": {
+    "intro": {
+      "baseDuration": 150,
+      "durationInFrames": 230,
+      "clips": [
+        {
+          "file": "voice/intro-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 79,
+          "text": "Szia! Ez egy változáskérelem."
+        },
+        {
+          "file": "voice/intro-2.wav",
+          "anchor": 40,
+          "from": 97,
+          "durationInFrames": 52,
+          "text": "Az asztalom papírból van."
+        },
+        {
+          "file": "voice/intro-3.wav",
+          "anchor": 86,
+          "from": 155,
+          "durationInFrames": 45,
+          "text": "Még a linter is szólt."
+        }
+      ]
+    },
+    "honeycomb": {
+      "baseDuration": 240,
+      "durationInFrames": 306,
+      "clips": [
+        {
+          "file": "voice/honeycomb-1.wav",
+          "anchor": 10,
+          "from": 10,
+          "durationInFrames": 100,
+          "text": "Ez a mostani IKEA-lap. Belül papír méhsejt."
+        },
+        {
+          "file": "voice/honeycomb-2.wav",
+          "anchor": 95,
+          "from": 116,
+          "durationInFrames": 59,
+          "text": "A szorító simán benyomja."
+        },
+        {
+          "file": "voice/honeycomb-3.wav",
+          "anchor": 165,
+          "from": 181,
+          "durationInFrames": 95,
+          "text": "50 kilót bír, kis felületen csak 15-öt."
+        }
+      ]
+    },
+    "surface": {
+      "baseDuration": 270,
+      "durationInFrames": 397,
+      "clips": [
+        {
+          "file": "voice/surface-1.wav",
+          "anchor": 14,
+          "from": 14,
+          "durationInFrames": 127,
+          "text": "Két 27 colos monitor: majdnem 123 centi."
+        },
+        {
+          "file": "voice/surface-2.wav",
+          "anchor": 66,
+          "from": 147,
+          "durationInFrames": 79,
+          "text": "Az asztal 120. Nem fér el."
+        },
+        {
+          "file": "voice/surface-3.wav",
+          "anchor": 132,
+          "from": 232,
+          "durationInFrames": 70,
+          "text": "Az új 160 × 80-as."
+        },
+        {
+          "file": "voice/surface-4.wav",
+          "anchor": 182,
+          "from": 308,
+          "durationInFrames": 59,
+          "text": "78%-kal nagyobb."
+        }
+      ]
+    },
+    "load": {
+      "baseDuration": 210,
+      "durationInFrames": 273,
+      "clips": [
+        {
+          "file": "voice/load-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 64,
+          "text": "Három és félszer többet bír."
+        },
+        {
+          "file": "voice/load-2.wav",
+          "anchor": 54,
+          "from": 82,
+          "durationInFrames": 84,
+          "text": "200 kiló, ebből 21 maga a lap."
+        },
+        {
+          "file": "voice/load-3.wav",
+          "anchor": 140,
+          "from": 172,
+          "durationInFrames": 71,
+          "text": "Ma kábé 25 kiló van rajta."
+        }
+      ]
+    },
+    "height": {
+      "baseDuration": 240,
+      "durationInFrames": 268,
+      "clips": [
+        {
+          "file": "voice/height-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 100,
+          "text": "Egy gombnyomásra 72 és 120 centi között."
+        },
+        {
+          "file": "voice/height-2.wav",
+          "anchor": 96,
+          "from": 118,
+          "durationInFrames": 50,
+          "text": "A mostanin állni nem lehet."
+        },
+        {
+          "file": "voice/height-3.wav",
+          "anchor": 150,
+          "from": 174,
+          "durationInFrames": 64,
+          "text": "A hármas memóriagomb a tiéd."
+        }
+      ]
+    },
+    "style": {
+      "baseDuration": 240,
+      "durationInFrames": 365,
+      "clips": [
+        {
+          "file": "voice/style-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 55,
+          "text": "A mostani tölgyhatású."
+        },
+        {
+          "file": "voice/style-2.wav",
+          "anchor": 50,
+          "from": 73,
+          "durationInFrames": 35,
+          "text": "A hatás elmaradt."
+        },
+        {
+          "file": "voice/style-3.wav",
+          "anchor": 88,
+          "from": 114,
+          "durationInFrames": 89,
+          "text": "Az új: szélezetlen dijoni dió."
+        },
+        {
+          "file": "voice/style-4.wav",
+          "anchor": 140,
+          "from": 209,
+          "durationInFrames": 126,
+          "text": "Ez bútor, nem irodaszer. Előtte ingyen kérünk mintát."
+        }
+      ]
+    },
+    "cost": {
+      "baseDuration": 240,
+      "durationInFrames": 251,
+      "clips": [
+        {
+          "file": "voice/cost-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 63,
+          "text": "Nagyjából 170 ezer forint."
+        },
+        {
+          "file": "voice/cost-2.wav",
+          "anchor": 60,
+          "from": 81,
+          "durationInFrames": 84,
+          "text": "Öt évre osztva napi 148 forint."
+        },
+        {
+          "file": "voice/cost-3.wav",
+          "anchor": 150,
+          "from": 171,
+          "durationInFrames": 50,
+          "text": "Kevesebb, mint egy kávé."
+        }
+      ]
+    },
+    "finePrint": {
+      "baseDuration": 210,
+      "durationInFrames": 302,
+      "clips": [
+        {
+          "file": "voice/finePrint-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 39,
+          "text": "És az apró betű."
+        },
+        {
+          "file": "voice/finePrint-2.wav",
+          "anchor": 24,
+          "from": 57,
+          "durationInFrames": 90,
+          "text": "Forgácslap, dió dekorral, nem tömör fa."
+        },
+        {
+          "file": "voice/finePrint-3.wav",
+          "anchor": 108,
+          "from": 153,
+          "durationInFrames": 59,
+          "text": "Alátét kerül a szorító alá."
+        },
+        {
+          "file": "voice/finePrint-4.wav",
+          "anchor": 146,
+          "from": 218,
+          "durationInFrames": 54,
+          "text": "Visszaállítási terv nincs."
+        }
+      ]
+    },
+    "finale": {
+      "baseDuration": 240,
+      "durationInFrames": 328,
+      "clips": [
+        {
+          "file": "voice/finale-1.wav",
+          "anchor": 12,
+          "from": 12,
+          "durationInFrames": 43,
+          "text": "A döntés a tiéd."
+        },
+        {
+          "file": "voice/finale-2.wav",
+          "anchor": 112,
+          "from": 112,
+          "durationInFrames": 67,
+          "text": "Szerintem az első gomb a nyerő."
+        },
+        {
+          "file": "voice/finale-3.wav",
+          "anchor": 196,
+          "from": 196,
+          "durationInFrames": 102,
+          "text": "Ha igen, a pizza az összeszerelés napján az enyém."
+        }
+      ]
+    }
+  }
+}

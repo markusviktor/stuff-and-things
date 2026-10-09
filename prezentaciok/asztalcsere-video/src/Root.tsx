@@ -10,21 +10,84 @@ import { Intro } from "./scenes/Intro";
 import { Load } from "./scenes/Load";
 import { Style } from "./scenes/Style";
 import { Surface } from "./scenes/Surface";
-import { TOTAL } from "./theme";
+import { DUR, TOTAL } from "./theme";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Folder name="Jelenetek">
-        <Composition id="Intro" component={Intro} width={1080} height={1920} fps={30} durationInFrames={150} />
-        <Composition id="Mehsejt" component={Honeycomb} width={1080} height={1920} fps={30} durationInFrames={240} />
-        <Composition id="Felulet" component={Surface} width={1080} height={1920} fps={30} durationInFrames={270} />
-        <Composition id="Teherbiras" component={Load} width={1080} height={1920} fps={30} durationInFrames={210} />
-        <Composition id="Magassag" component={Height} width={1080} height={1920} fps={30} durationInFrames={240} />
-        <Composition id="Stilus" component={Style} width={1080} height={1920} fps={30} durationInFrames={240} />
-        <Composition id="Koltseg" component={Cost} width={1080} height={1920} fps={30} durationInFrames={240} />
-        <Composition id="AproBetu" component={FinePrint} width={1080} height={1920} fps={30} durationInFrames={210} />
-        <Composition id="Jovahagyas" component={Finale} width={1080} height={1920} fps={30} durationInFrames={240} />
+        <Composition
+          id="Intro"
+          component={Intro}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.intro}
+        />
+        <Composition
+          id="Mehsejt"
+          component={Honeycomb}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.honeycomb}
+        />
+        <Composition
+          id="Felulet"
+          component={Surface}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.surface}
+        />
+        <Composition
+          id="Teherbiras"
+          component={Load}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.load}
+        />
+        <Composition
+          id="Magassag"
+          component={Height}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.height}
+        />
+        <Composition
+          id="Stilus"
+          component={Style}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.style}
+        />
+        <Composition
+          id="Koltseg"
+          component={Cost}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.cost}
+        />
+        <Composition
+          id="AproBetu"
+          component={FinePrint}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.finePrint}
+        />
+        <Composition
+          id="Jovahagyas"
+          component={Finale}
+          width={1080}
+          height={1920}
+          fps={30}
+          durationInFrames={DUR.finale}
+        />
       </Folder>
       <Composition
         id="Asztalcsere"

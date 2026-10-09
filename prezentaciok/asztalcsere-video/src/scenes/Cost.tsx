@@ -1,13 +1,16 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, DISPLAY, EASE, MONO, SIDE, huNum } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+} from "../ui";
 
 const MAX = 15000;
 
@@ -19,7 +22,7 @@ const Bar: React.FC<{
   readonly at: number;
   readonly inside?: boolean;
 }> = ({ top, name, value, color, at, inside }) => {
-  const frame = useCurrentFrame();
+  const frame = useSceneFrame();
   const p = interpolate(frame, [at, at + 30], [0, 1], {
     ...CLAMP,
     easing: EASE,
@@ -66,8 +69,9 @@ const Bar: React.FC<{
   );
 };
 
-export const Cost: React.FC = () => {
-  const frame = useCurrentFrame();
+const CostBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   const eq: React.CSSProperties = {
     fontFamily: MONO,
@@ -81,35 +85,35 @@ export const Cost: React.FC = () => {
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={20}
+        from={at(20)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={32}
+        from={at(32)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={44}
+        from={at(44)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
-        from={98}
+        from={at(98)}
         volume={0.7}
         premountFor={fps}
       />
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
-        from={120}
+        from={at(120)}
         volume={0.8}
         premountFor={fps}
       />
@@ -191,7 +195,7 @@ export const Cost: React.FC = () => {
           <div
             style={{
               fontFamily: DISPLAY,
-              fontSize: 64,
+              fontSize: 52,
               fontWeight: 800,
               letterSpacing: "-0.02em",
             }}
@@ -209,3 +213,9 @@ export const Cost: React.FC = () => {
     </Scene>
   );
 };
+
+export const Cost: React.FC = () => (
+  <SceneClock scene="cost">
+    <CostBody />
+  </SceneClock>
+);

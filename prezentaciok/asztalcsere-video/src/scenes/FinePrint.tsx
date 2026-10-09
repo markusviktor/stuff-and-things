@@ -2,7 +2,14 @@ import { Audio } from "@remotion/media";
 import type React from "react";
 import { staticFile, useVideoConfig } from "remotion";
 import { C, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+} from "../ui";
 
 const Item: React.FC<{
   readonly at: number;
@@ -23,35 +30,36 @@ const Item: React.FC<{
   </Reveal>
 );
 
-export const FinePrint: React.FC = () => {
+const FinePrintBody: React.FC = () => {
+  const at = useSceneAt();
   const { fps } = useVideoConfig();
   return (
     <Scene>
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
-        from={24}
+        from={at(24)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
-        from={52}
+        from={at(52)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
-        from={80}
+        from={at(80)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
-        from={108}
+        from={at(108)}
         volume={0.8}
         premountFor={fps}
       />
@@ -91,3 +99,9 @@ export const FinePrint: React.FC = () => {
     </Scene>
   );
 };
+
+export const FinePrint: React.FC = () => (
+  <SceneClock scene="finePrint">
+    <FinePrintBody />
+  </SceneClock>
+);

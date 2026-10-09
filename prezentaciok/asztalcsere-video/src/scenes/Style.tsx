@@ -1,38 +1,45 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  CanvasImage,
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { CanvasImage, interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, DISPLAY, EASE, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+  useNarrationLine,
+} from "../ui";
 
-export const Style: React.FC = () => {
-  const frame = useCurrentFrame();
+const StyleBody: React.FC = () => {
+  const at = useSceneAt();
+  const line2 = useNarrationLine(1);
+  // the "womp" lands right after "A hatás elmaradt."
+  const wompAt = line2.from + line2.durationInFrames + 2;
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   return (
     <Scene>
       <Audio
         name="womp"
         src={staticFile("audio/womp.wav")}
-        from={56}
+        from={wompAt}
         volume={0.45}
         premountFor={fps}
       />
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
-        from={88}
+        from={at(88)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
-        from={140}
+        from={at(140)}
         volume={0.7}
         premountFor={fps}
       />
@@ -61,7 +68,7 @@ export const Style: React.FC = () => {
           <div
             style={{
               marginTop: 16,
-              height: 260,
+              height: 200,
               borderRadius: 4,
               border: `2px solid ${C.matIkeaEdge}`,
               background: `repeating-linear-gradient(1deg, ${C.grainIkea} 0 2px, transparent 2px 14px), repeating-linear-gradient(179.4deg, ${C.grainIkea} 0 1px, transparent 1px 34px), ${C.matIkea}`,
@@ -89,7 +96,7 @@ export const Style: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ position: "absolute", top: 1060, left: SIDE, width: 920 }}>
+      <div style={{ position: "absolute", top: 1000, left: SIDE, width: 920 }}>
         <Reveal at={82} dy={20}>
           <Mono size={28}>ÚJ · TERMÉSZETES DIJONI DIÓ, SZÉLEZETLEN</Mono>
         </Reveal>
@@ -110,7 +117,7 @@ export const Style: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ position: "absolute", top: 1500, left: SIDE, right: SIDE }}>
+      <div style={{ position: "absolute", top: 1430, left: SIDE, right: SIDE }}>
         <Reveal at={140}>
           <div
             style={{
@@ -124,13 +131,13 @@ export const Style: React.FC = () => {
             Bútor. Nem irodaszer.
           </div>
         </Reveal>
-        <Reveal at={166} style={{ marginTop: 26 }}>
-          <div style={{ fontSize: 40, lineHeight: 1.3, color: C.ink2 }}>
-            A Liftor ingyen küld dekormintát. Előbb kézbe vesszük, utána
-            döntünk.
-          </div>
-        </Reveal>
       </div>
     </Scene>
   );
 };
+
+export const Style: React.FC = () => (
+  <SceneClock scene="style">
+    <StyleBody />
+  </SceneClock>
+);

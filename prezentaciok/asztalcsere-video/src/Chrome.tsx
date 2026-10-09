@@ -1,5 +1,10 @@
 import type React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  interpolate,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { C, CLAMP, DUR, MONO, SIDE } from "./theme";
 
 // Persistent ticket strip and progress bar, drawn above the scenes.
@@ -21,13 +26,30 @@ export const Chrome: React.FC = () => {
           fontFamily: MONO,
           fontSize: 26,
           fontWeight: 500,
-          opacity: interpolate(frame, [DUR.intro - 20, DUR.intro], [0, 1], CLAMP),
+          opacity: interpolate(
+            frame,
+            [DUR.intro - 20, DUR.intro],
+            [0, 1],
+            CLAMP,
+          ),
         }}
       >
         <span style={{ color: C.ink }}>CR-2026-0042</span>
-        <span style={{ color: C.muted, letterSpacing: "0.08em" }}>ASZTALCSERE · JÓVÁHAGYÓ: TE</span>
+        <span style={{ color: C.muted, letterSpacing: "0.08em" }}>
+          ASZTALCSERE · JÓVÁHAGYÓ: TE
+        </span>
       </div>
-      <div style={{ position: "absolute", left: SIDE, right: SIDE, bottom: 90, height: 6, borderRadius: 3, backgroundColor: C.line }}>
+      <div
+        style={{
+          position: "absolute",
+          left: SIDE,
+          right: SIDE,
+          bottom: 90,
+          height: 6,
+          borderRadius: 3,
+          backgroundColor: C.line,
+        }}
+      >
         <div
           style={{
             height: 6,

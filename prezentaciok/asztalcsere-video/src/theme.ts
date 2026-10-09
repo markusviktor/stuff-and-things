@@ -1,4 +1,5 @@
 import { Easing } from "remotion";
+import { NARRATION } from "./narration";
 
 // Same palette as the one-pager (prezentaciok/asztalcsere.html), light theme only.
 export const C = {
@@ -49,17 +50,18 @@ export const CLAMP = {
   extrapolateRight: "clamp",
 } as const;
 
-// Scene lengths in frames at 30 fps. Transitions overlap 15 frames each.
+// Scene lengths in frames at 30 fps, sized to the narration (scripts/narration.py).
+// Transitions overlap 15 frames each.
 export const DUR = {
-  intro: 150,
-  honeycomb: 240,
-  surface: 270,
-  load: 210,
-  height: 240,
-  style: 240,
-  cost: 240,
-  finePrint: 210,
-  finale: 240,
+  intro: NARRATION.intro.durationInFrames,
+  honeycomb: NARRATION.honeycomb.durationInFrames,
+  surface: NARRATION.surface.durationInFrames,
+  load: NARRATION.load.durationInFrames,
+  height: NARRATION.height.durationInFrames,
+  style: NARRATION.style.durationInFrames,
+  cost: NARRATION.cost.durationInFrames,
+  finePrint: NARRATION.finePrint.durationInFrames,
+  finale: NARRATION.finale.durationInFrames,
 } as const;
 export const TRANSITION = 15;
 export const TOTAL =

@@ -1,7 +1,7 @@
 # Asztalcsere – videó
 
 Az [egyoldalas asztalcsere-kérelem](../asztalcsere.html) videós változata, [Remotion](https://www.remotion.dev)-nel.
-Álló, 1080 × 1920, 30 fps, kb. 64 másodperc, zenével és hangeffektekkel.
+Álló, 1080 × 1920, 30 fps, kb. 87 másodperc, magyar narrációval és felirattal, zenével, hangeffektekkel.
 
 ## Jelenetek
 
@@ -19,6 +19,23 @@ Az [egyoldalas asztalcsere-kérelem](../asztalcsere.html) videós változata, [R
 
 A fő idővonal: `src/AsztalcsereVideo.tsx` (`TransitionSeries`, 15 frame-es átmenetekkel).
 Minden jelenet külön kompozícióként is szerepel a Studio „Jelenetek” mappájában.
+
+## Narráció
+
+- A szöveg a `scripts/narration.py`-ban van, jelenetenként mondatokra bontva. Minden mondat ahhoz a képkockához van kötve, ahol a hozzá tartozó animáció indul.
+- A hang a [Piper](https://github.com/rhasspy/piper) helyben futó felolvasója, a CC0 licencű magyar „imre” hanggal. A felolvasott szöveg a számokat betűvel írja, és ahol a gép félreejtene, kiejtés szerint (pl. „dizsoni”). A felirat a rendes helyesírást mutatja.
+- A script legyártja a `public/voice/*.wav` klipeket és az `src/narration.json` időzítést. A jelenetek hossza ebből jön (`DUR` a `theme.ts`-ben).
+- A `SceneClock` (`src/ui.tsx`) jelenetenként szakaszonként lineárisan nyújtja az animáció idejét, így minden mondat pontosan akkor szólal meg, amikor a hozzá tartozó kép megjelenik. Ugyanez a komponens játssza le a klipeket és rajzolja a feliratot.
+- A zene beszéd alatt lehalkul (ducking, `AsztalcsereVideo.tsx`).
+
+Újragenerálás:
+
+```console
+pip install piper-tts
+curl -LO https://huggingface.co/rhasspy/piper-voices/resolve/main/hu/hu_HU/imre/medium/hu_HU-imre-medium.onnx
+curl -LO https://huggingface.co/rhasspy/piper-voices/resolve/main/hu/hu_HU/imre/medium/hu_HU-imre-medium.onnx.json
+PIPER_MODEL=hu_HU-imre-medium.onnx python3 scripts/narration.py
+```
 
 ## Hang
 

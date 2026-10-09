@@ -1,13 +1,16 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, DISPLAY, EASE, EASE_IN_OUT, MONO, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+} from "../ui";
 
 // Top-down plan in centimetres. 27" monitor with bezel ≈ 61.4 cm wide.
 const MON = 61.4;
@@ -126,8 +129,9 @@ const Monitor: React.FC<{ readonly c: number }> = ({ c }) => (
   </g>
 );
 
-export const Surface: React.FC = () => {
-  const frame = useCurrentFrame();
+const SurfaceBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   const t = interpolate(frame, [132, 176], [0, 1], {
     ...CLAMP,
@@ -164,35 +168,35 @@ export const Surface: React.FC = () => {
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
-        from={18}
+        from={at(18)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="thud"
         src={staticFile("audio/thud.wav")}
-        from={44}
+        from={at(44)}
         volume={0.7}
         premountFor={fps}
       />
       <Audio
         name="record-scratch"
         src={staticFile("sfx/record-scratch.wav")}
-        from={72}
+        from={at(72)}
         volume={0.6}
         premountFor={fps}
       />
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
-        from={132}
+        from={at(132)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
-        from={198}
+        from={at(198)}
         volume={0.7}
         premountFor={fps}
       />
@@ -407,7 +411,7 @@ export const Surface: React.FC = () => {
         </Reveal>
       </div>
 
-      <div style={{ position: "absolute", top: 1720, left: SIDE, right: SIDE }}>
+      <div style={{ position: "absolute", top: 1610, left: SIDE, right: SIDE }}>
         <Reveal at={70} dy={0}>
           <Mono size={24}>
             Felülnézet, méretarányosan · 27″-os monitorokkal számolva
@@ -417,3 +421,9 @@ export const Surface: React.FC = () => {
     </Scene>
   );
 };
+
+export const Surface: React.FC = () => (
+  <SceneClock scene="surface">
+    <SurfaceBody />
+  </SceneClock>
+);

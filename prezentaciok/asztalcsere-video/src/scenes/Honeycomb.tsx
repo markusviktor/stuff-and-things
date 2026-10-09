@@ -1,13 +1,16 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, DISPLAY, EASE, MONO, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+} from "../ui";
 
 const label: React.SVGProps<SVGTextElement> = {
   fontFamily: MONO,
@@ -16,8 +19,9 @@ const label: React.SVGProps<SVGTextElement> = {
   fill: C.ink2,
 };
 
-export const Honeycomb: React.FC = () => {
-  const frame = useCurrentFrame();
+const HoneycombBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   const clampX = interpolate(frame, [26, 50], [-120, 0], {
     ...CLAMP,
@@ -42,42 +46,42 @@ export const Honeycomb: React.FC = () => {
       <Audio
         name="whip"
         src={staticFile("sfx/whip.wav")}
-        from={26}
+        from={at(26)}
         volume={0.85}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={52}
+        from={at(52)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="thud"
         src={staticFile("audio/thud.wav")}
-        from={84}
+        from={at(84)}
         volume={0.55}
         premountFor={fps}
       />
       <Audio
         name="bone-crack"
         src={staticFile("sfx/bone-crack.wav")}
-        from={110}
+        from={at(110)}
         volume={1}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={168}
+        from={at(168)}
         volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
-        from={182}
+        from={at(182)}
         volume={0.75}
         premountFor={fps}
       />
@@ -302,7 +306,7 @@ export const Honeycomb: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: 1290,
+          top: 1260,
           left: SIDE,
           right: SIDE,
           display: "flex",
@@ -358,3 +362,9 @@ export const Honeycomb: React.FC = () => {
     </Scene>
   );
 };
+
+export const Honeycomb: React.FC = () => (
+  <SceneClock scene="honeycomb">
+    <HoneycombBody />
+  </SceneClock>
+);

@@ -1,15 +1,18 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, DISPLAY, EASE, EASE_IN_OUT, MONO, SIDE } from "../theme";
-import { Mono, Reveal, Scene, SceneHeader } from "../ui";
+import {
+  Mono,
+  Reveal,
+  Scene,
+  SceneHeader,
+  SceneClock,
+  useSceneAt,
+  useSceneFrame,
+} from "../ui";
 
-const G = 1480; // floor line, px
+const G = 1420; // floor line, px
 const K = 6; // px per cm
 const y = (cm: number) => G - cm * K;
 // Ideal heights for a 180 cm person: seated ≈ 40.5 %, standing ≈ 62.5 % of body height.
@@ -22,7 +25,7 @@ const Band: React.FC<{
   readonly at: number;
   readonly tick?: React.ReactNode;
 }> = ({ cm, text, at, tick }) => {
-  const frame = useCurrentFrame();
+  const frame = useSceneFrame();
   return (
     <div style={{ opacity: interpolate(frame, [at, at + 10], [0, 1], CLAMP) }}>
       <div
@@ -56,8 +59,9 @@ const Band: React.FC<{
   );
 };
 
-export const Height: React.FC = () => {
-  const frame = useCurrentFrame();
+const HeightBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   const h =
     frame < 156
@@ -77,37 +81,37 @@ export const Height: React.FC = () => {
       <Audio
         name="motor"
         src={staticFile("audio/motor.wav")}
-        from={50}
-        durationInFrames={100}
+        from={at(50)}
+        durationInFrames={at(150) - at(50)}
         volume={0.3}
         premountFor={fps}
       />
       <Audio
         name="error"
         src={staticFile("audio/error.wav")}
-        from={96}
+        from={at(96)}
         volume={0.3}
         premountFor={fps}
       />
       <Audio
         name="mouse-click"
         src={staticFile("sfx/mouse-click.wav")}
-        from={154}
+        from={at(154)}
         volume={0.85}
         premountFor={fps}
       />
       <Audio
         name="motor"
         src={staticFile("audio/motor.wav")}
-        from={158}
-        durationInFrames={24}
+        from={at(158)}
+        durationInFrames={at(182) - at(158)}
         volume={0.3}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
-        from={182}
+        from={at(182)}
         volume={0.7}
         premountFor={fps}
       />
@@ -405,7 +409,7 @@ export const Height: React.FC = () => {
           position: "absolute",
           left: SIDE,
           right: SIDE,
-          top: 1660,
+          top: 1560,
           display: "flex",
           alignItems: "center",
           gap: 14,
@@ -447,3 +451,9 @@ export const Height: React.FC = () => {
     </Scene>
   );
 };
+
+export const Height: React.FC = () => (
+  <SceneClock scene="height">
+    <HeightBody />
+  </SceneClock>
+);

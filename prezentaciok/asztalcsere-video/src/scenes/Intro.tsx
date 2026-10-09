@@ -1,13 +1,8 @@
 import { Audio } from "@remotion/media";
 import type React from "react";
-import {
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { interpolate, staticFile, useVideoConfig } from "remotion";
 import { C, CLAMP, DISPLAY, EASE, MONO, SIDE } from "../theme";
-import { Reveal, Scene } from "../ui";
+import { Reveal, Scene, SceneClock, useSceneAt, useSceneFrame } from "../ui";
 
 const FIELDS: ReadonlyArray<readonly [string, string]> = [
   ["Változáskérelem", "CR-2026-0042"],
@@ -25,8 +20,9 @@ const WAVE =
     (_, i) => `Q ${i * 12.5 + 6.25} ${i % 2 ? 18 : 2} ${(i + 1) * 12.5} 10`,
   ).join(" ");
 
-export const Intro: React.FC = () => {
-  const frame = useCurrentFrame();
+const IntroBody: React.FC = () => {
+  const at = useSceneAt();
+  const frame = useSceneFrame();
   const { fps } = useVideoConfig();
   const headline: React.CSSProperties = {
     fontFamily: DISPLAY,
@@ -43,7 +39,7 @@ export const Intro: React.FC = () => {
           key={f}
           name="Field tick"
           src={staticFile("sfx/mouse-click.wav")}
-          from={f}
+          from={at(f)}
           volume={0.6}
           premountFor={fps}
         />
@@ -51,14 +47,14 @@ export const Intro: React.FC = () => {
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
-        from={34}
+        from={at(34)}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="error"
         src={staticFile("audio/error.wav")}
-        from={84}
+        from={at(84)}
         volume={0.4}
         premountFor={fps}
       />
@@ -191,3 +187,9 @@ export const Intro: React.FC = () => {
     </Scene>
   );
 };
+
+export const Intro: React.FC = () => (
+  <SceneClock scene="intro">
+    <IntroBody />
+  </SceneClock>
+);
