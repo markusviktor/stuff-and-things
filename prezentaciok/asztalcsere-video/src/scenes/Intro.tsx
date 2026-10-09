@@ -1,5 +1,11 @@
+import { Audio } from "@remotion/media";
 import type React from "react";
-import { interpolate, useCurrentFrame } from "remotion";
+import {
+  interpolate,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { C, CLAMP, DISPLAY, EASE, MONO, SIDE } from "../theme";
 import { Reveal, Scene } from "../ui";
 
@@ -14,10 +20,14 @@ const FIELDS: ReadonlyArray<readonly [string, string]> = [
 
 const WAVE =
   "M0 10 " +
-  Array.from({ length: 16 }, (_, i) => `Q ${i * 12.5 + 6.25} ${i % 2 ? 18 : 2} ${(i + 1) * 12.5} 10`).join(" ");
+  Array.from(
+    { length: 16 },
+    (_, i) => `Q ${i * 12.5 + 6.25} ${i % 2 ? 18 : 2} ${(i + 1) * 12.5} 10`,
+  ).join(" ");
 
 export const Intro: React.FC = () => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
   const headline: React.CSSProperties = {
     fontFamily: DISPLAY,
     fontSize: 150,
@@ -28,6 +38,30 @@ export const Intro: React.FC = () => {
 
   return (
     <Scene>
+      {[4, 9, 14, 19, 24, 29].map((f) => (
+        <Audio
+          key={f}
+          name="Field tick"
+          src={staticFile("sfx/mouse-click.wav")}
+          from={f}
+          volume={0.45}
+          premountFor={fps}
+        />
+      ))}
+      <Audio
+        name="whoosh"
+        src={staticFile("sfx/whoosh.wav")}
+        from={34}
+        volume={0.35}
+        premountFor={fps}
+      />
+      <Audio
+        name="error"
+        src={staticFile("audio/error.wav")}
+        from={84}
+        volume={0.4}
+        premountFor={fps}
+      />
       <div
         style={{
           position: "absolute",
@@ -55,7 +89,14 @@ export const Intro: React.FC = () => {
             >
               {k}
             </div>
-            <div style={{ fontFamily: MONO, fontSize: 34, fontWeight: 500, marginTop: 4 }}>
+            <div
+              style={{
+                fontFamily: MONO,
+                fontSize: 34,
+                fontWeight: 500,
+                marginTop: 4,
+              }}
+            >
               {v}
             </div>
           </Reveal>
@@ -83,7 +124,13 @@ export const Intro: React.FC = () => {
                   clipPath: `inset(0 ${interpolate(frame, [56, 80], [100, 0], { ...CLAMP, easing: EASE })}% 0 0)`,
                 }}
               >
-                <path d={WAVE} fill="none" stroke={C.bad} strokeWidth={7} vectorEffect="non-scaling-stroke" />
+                <path
+                  d={WAVE}
+                  fill="none"
+                  stroke={C.bad}
+                  strokeWidth={7}
+                  vectorEffect="non-scaling-stroke"
+                />
               </svg>
             </span>
           </div>
@@ -104,18 +151,41 @@ export const Intro: React.FC = () => {
             padding: "18px 26px",
             borderRadius: 10,
             opacity: interpolate(frame, [84, 92], [0, 1], CLAMP),
-            scale: interpolate(frame, [84, 96], [0.9, 1], { ...CLAMP, easing: EASE, output: "perceptual-scale" }),
+            scale: interpolate(frame, [84, 96], [0.9, 1], {
+              ...CLAMP,
+              easing: EASE,
+              output: "perceptual-scale",
+            }),
             transformOrigin: "left center",
           }}
         >
-          <span style={{ width: 18, height: 18, borderRadius: 9, backgroundColor: C.bad, flex: "none" }} />
+          <span
+            style={{
+              width: 18,
+              height: 18,
+              borderRadius: 9,
+              backgroundColor: C.bad,
+              flex: "none",
+            }}
+          />
           lint: a papír nem teherhordó anyag
         </div>
       </div>
 
-      <div style={{ position: "absolute", top: 1440, left: SIDE, right: SIDE, fontSize: 46, lineHeight: 1.35, color: C.ink2 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 1440,
+          left: SIDE,
+          right: SIDE,
+          fontSize: 46,
+          lineHeight: 1.35,
+          color: C.ink2,
+        }}
+      >
         <Reveal at={104}>
-          Változáskérelem a mostani asztal cseréjére. Számokkal, ábrákkal, kb. egy percben.
+          Változáskérelem a mostani asztal cseréjére. Számokkal, ábrákkal, kb.
+          egy percben.
         </Reveal>
       </div>
     </Scene>

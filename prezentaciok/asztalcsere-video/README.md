@@ -1,7 +1,7 @@
 # Asztalcsere – videó
 
 Az [egyoldalas asztalcsere-kérelem](../asztalcsere.html) videós változata, [Remotion](https://www.remotion.dev)-nel.
-Álló, 1080 × 1920, 30 fps, kb. 64 másodperc, hang nélkül.
+Álló, 1080 × 1920, 30 fps, kb. 64 másodperc, zenével és hangeffektekkel.
 
 ## Jelenetek
 
@@ -20,6 +20,14 @@ Az [egyoldalas asztalcsere-kérelem](../asztalcsere.html) videós változata, [R
 A fő idővonal: `src/AsztalcsereVideo.tsx` (`TransitionSeries`, 15 frame-es átmenetekkel).
 Minden jelenet külön kompozícióként is szerepel a Studio „Jelenetek” mappájában.
 
+## Hang
+
+- **Zene** (`public/audio/music.mp3`): saját, kódból szintetizált lo-fi alap (D-dúr, I–vi–ii–V, 90 BPM), így nincs vele jogdíj-kérdés. Újragenerálás: `python3 scripts/synth-audio.py` (numpy és ffmpeg kell hozzá).
+- **Saját effektek** (`public/audio/`): asztalmotor-zúgás, hibajelző sípolás, puffanás, „womp womp”. Ugyanaz a script készíti őket.
+- **Remotion effektek** (`public/sfx/`): whoosh, whip, kattintás, ding, lapozás, reccsenés, lemezkarc, a [remotion.media](https://remotion.media) gyűjteményből, helyben tárolva.
+
+Az effektek a jelenetfájlokban, a hozzájuk tartozó animáció mellett vannak (`<Audio from={…}>`), a zene és az átmenetek hangja az `AsztalcsereVideo.tsx`-ben.
+
 A betűk (`public/fonts`) és a diótextúra (`public/wood`, ugyanazzal a rajzolóval, mint az HTML oldal) helyben vannak, így a render nem igényel hálózatot.
 
 ## Parancsok
@@ -27,7 +35,7 @@ A betűk (`public/fonts`) és a diótextúra (`public/wood`, ugyanazzal a rajzol
 ```console
 npm i
 npm run dev                                   # Remotion Studio
-npx remotion render Asztalcsere out/asztalcsere.mp4 --codec=h264 --crf=20
+npx remotion render Asztalcsere out/asztalcsere.mp4 --codec=h264 --crf=20 --audio-codec=aac --audio-bitrate=192k
 ```
 
 Remotion licenc: magánszemélynek és legfeljebb 3 fős csapatnak ingyenes, a részletek [itt](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).

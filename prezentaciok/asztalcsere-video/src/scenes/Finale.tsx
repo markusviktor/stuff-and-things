@@ -1,5 +1,12 @@
+import { Audio } from "@remotion/media";
 import type React from "react";
-import { CanvasImage, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  CanvasImage,
+  interpolate,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { C, CLAMP, EASE, MONO, SIDE } from "../theme";
 import { Mono, Reveal, Scene, SceneHeader } from "../ui";
 
@@ -10,8 +17,14 @@ export const Finale: React.FC = () => {
   const { fps } = useVideoConfig();
   const hover = interpolate(frame, [150, 158], [0, 1], CLAMP);
   const press = interpolate(frame, [170, 174, 180], [1, 0.96, 1], CLAMP);
-  const cx = interpolate(frame, [112, 150], [1020, 600], { ...CLAMP, easing: EASE });
-  const cy = interpolate(frame, [112, 150], [1800, BTN_TOP[0] + 56], { ...CLAMP, easing: EASE });
+  const cx = interpolate(frame, [112, 150], [1020, 600], {
+    ...CLAMP,
+    easing: EASE,
+  });
+  const cy = interpolate(frame, [112, 150], [1800, BTN_TOP[0] + 56], {
+    ...CLAMP,
+    easing: EASE,
+  });
 
   const btn = (top: number, at: number, text: string, primary: boolean) => (
     <div
@@ -30,9 +43,14 @@ export const Finale: React.FC = () => {
         backgroundColor: primary ? C.walnut : "transparent",
         color: primary ? "#fff" : C.ink,
         opacity: interpolate(frame, [at, at + 10], [0, 1], CLAMP),
-        translate: interpolate(frame, [at, at + 18], ["0px 30px", "0px 0px"], { ...CLAMP, easing: EASE }),
+        translate: interpolate(frame, [at, at + 18], ["0px 30px", "0px 0px"], {
+          ...CLAMP,
+          easing: EASE,
+        }),
         scale: primary ? (1 + 0.03 * hover) * press : 1,
-        boxShadow: primary ? `0 0 0 ${10 * hover}px rgba(165, 98, 44, 0.22)` : "none",
+        boxShadow: primary
+          ? `0 0 0 ${10 * hover}px rgba(165, 98, 44, 0.22)`
+          : "none",
       }}
     >
       {text}
@@ -41,6 +59,27 @@ export const Finale: React.FC = () => {
 
   return (
     <Scene>
+      <Audio
+        name="mouse-click"
+        src={staticFile("sfx/mouse-click.wav")}
+        from={170}
+        volume={0.7}
+        premountFor={fps}
+      />
+      <Audio
+        name="thud"
+        src={staticFile("audio/thud.wav")}
+        from={176}
+        volume={0.8}
+        premountFor={fps}
+      />
+      <Audio
+        name="ding"
+        src={staticFile("sfx/ding.wav")}
+        from={196}
+        volume={0.35}
+        premountFor={fps}
+      />
       <SceneHeader eyebrow="Jóváhagyás" title="A döntés a tiéd." />
 
       <div
@@ -51,14 +90,24 @@ export const Finale: React.FC = () => {
           width: 920,
           height: 494,
           opacity: interpolate(frame, [14, 30], [0, 1], CLAMP),
-          translate: interpolate(frame, [14, 40], ["0px 40px", "0px 0px"], { ...CLAMP, easing: EASE }),
+          translate: interpolate(frame, [14, 40], ["0px 40px", "0px 0px"], {
+            ...CLAMP,
+            easing: EASE,
+          }),
         }}
       >
-        <CanvasImage src={staticFile("wood/slab.png")} width={920} height={494} premountFor={fps} />
+        <CanvasImage
+          src={staticFile("wood/slab.png")}
+          width={920}
+          height={494}
+          premountFor={fps}
+        />
       </div>
       <div style={{ position: "absolute", top: 930, left: SIDE, right: SIDE }}>
         <Reveal at={44} dy={14}>
-          <Mono size={26}>160 × 80 × 2,5 cm · Természetes dijoni dió (H3734) · szélezetlen</Mono>
+          <Mono size={26}>
+            160 × 80 × 2,5 cm · Természetes dijoni dió (H3734) · szélezetlen
+          </Mono>
         </Reveal>
       </div>
 
@@ -82,7 +131,11 @@ export const Finale: React.FC = () => {
           backgroundColor: "rgba(241, 242, 238, 0.82)",
           rotate: "-9deg",
           opacity: interpolate(frame, [176, 180], [0, 1], CLAMP),
-          scale: interpolate(frame, [176, 186], [1.7, 1], { ...CLAMP, easing: EASE, output: "perceptual-scale" }),
+          scale: interpolate(frame, [176, 186], [1.7, 1], {
+            ...CLAMP,
+            easing: EASE,
+            output: "perceptual-scale",
+          }),
         }}
       >
         JÓVÁHAGYVA?
@@ -100,15 +153,33 @@ export const Finale: React.FC = () => {
           scale: press,
         }}
       >
-        <path d="M4 2 L4 19 L8.5 15 L11.5 21.5 L14.5 20 L11.5 13.8 L17.5 13.8 Z" fill={C.ink} stroke="#fff" strokeWidth={1.4} strokeLinejoin="round" />
+        <path
+          d="M4 2 L4 19 L8.5 15 L11.5 21.5 L14.5 20 L11.5 13.8 L17.5 13.8 Z"
+          fill={C.ink}
+          stroke="#fff"
+          strokeWidth={1.4}
+          strokeLinejoin="round"
+        />
       </svg>
 
-      <div style={{ position: "absolute", top: 1520, left: SIDE, right: SIDE, fontSize: 40, lineHeight: 1.35, color: C.ink2 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 1520,
+          left: SIDE,
+          right: SIDE,
+          fontSize: 40,
+          lineHeight: 1.35,
+          color: C.ink2,
+        }}
+      >
         <Reveal at={196}>A pizza az összeszerelés napján az enyém.</Reveal>
       </div>
       <div style={{ position: "absolute", top: 1660, left: SIDE, right: SIDE }}>
         <Reveal at={206} dy={10}>
-          <span style={{ fontFamily: MONO, fontSize: 26, color: C.muted }}>CR-2026-0042 · a részletek az egyoldalas kérelemben</span>
+          <span style={{ fontFamily: MONO, fontSize: 26, color: C.muted }}>
+            CR-2026-0042 · a részletek az egyoldalas kérelemben
+          </span>
         </Reveal>
       </div>
     </Scene>
