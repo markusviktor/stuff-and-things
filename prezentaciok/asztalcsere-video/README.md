@@ -54,7 +54,7 @@ npm i
 npm run dev                                   # Remotion Studio
 npx remotion render Asztalcsere out/asztalcsere.mp4 --codec=h264 --crf=20 --audio-codec=aac --audio-bitrate=192k
 # hangerő telefonra (kb. -16 LUFS), limiterrel; a videósáv érintetlen
-ffmpeg -i out/asztalcsere.mp4 -c:v copy -af "volume=5dB,alimiter=limit=0.84:attack=5:release=60:level=disabled" \
+ffmpeg -i out/asztalcsere.mp4 -c:v copy -af "volume=2.3dB,alimiter=limit=0.84:attack=5:release=60:level=disabled" \
   -c:a aac -b:a 192k -movflags +faststart ../asztalcsere.mp4
 ```
 
