@@ -1,0 +1,1259 @@
+<title>Asztalcsere-kérelem</title>
+<meta name="description" content="Egyoldalas, számokkal alátámasztott kérelem: IKEA LAGKAPTEN/ALEX helyett Liftor Rock, 160 × 80-as, szélezetlen, természetes dijoni dió lappal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one narrow column dressed as an IT change request (CR) — mono ticket fields frame plain-language sections; the walnut slab is the one loud thing. */
+:root {
+  --paper: #f1f2ee;
+  --card: #fbfbf9;
+  --ink: #1c1a18;
+  --ink-2: #56524c;
+  --muted: #6f6a62;
+  --line: #dcdcd5;
+  --line-2: #c4c3ba;
+  --accent: #6e4527;
+  --s-new: #a5622c;
+  --s-now: #4f7fb8;
+  --s-ref: #b3b0a7;
+  --bad: #b8352c;
+  --bad-wash: rgba(184, 53, 44, .14);
+  --warn: #9a6a00;
+  --good: #2d7a33;
+  --zone: rgba(165, 98, 44, .16);
+  --metal: #5f5c57;
+  --metal-d: #3e3b37;
+  --tip-bg: #1c1a18;
+  --tip-fg: #f1f2ee;
+
+  /* Materials and objects: drawn things keep their own colour in both themes */
+  --mat-ikea: #e8e3da;
+  --mat-ikea-edge: #b8b1a3;
+  --mat-walnut: #8b5e3c;
+  --mat-walnut-edge: #4a2e1a;
+  --mat-paper: #eadcc0;
+  --mat-honey: #b49c74;
+  --mat-chip: #c9a77e;
+  --mat-chip-d: #9c7a52;
+  --mat-chip-l: #e2c8a2;
+  --grain-i: rgba(140, 118, 84, .22);
+  --grain-w: rgba(48, 26, 10, .30);
+  --obj-dark: #1f1d1a;
+  --obj-light: #ecebe7;
+  --obj-line: #2a2723;
+  --obj-key: #9d9a93;
+  --obj-arm: #6b6760;
+  --coffee: #4a2c17;
+  --free-fill: rgba(255, 255, 255, .10);
+  --free-line: rgba(255, 240, 220, .8);
+
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161411; --card: #201d19; --ink: #f0ebe4; --ink-2: #c6beb3; --muted: #9a9388;
+    --line: #34302b; --line-2: #4b463f; --accent: #dba571; --s-new: #b57a45; --s-now: #5b8bc6; --s-ref: #6d6860;
+    --bad: #e8695f; --bad-wash: rgba(232, 105, 95, .2); --warn: #e0a83a; --good: #62bb68; --zone: rgba(219, 165, 113, .18);
+    --metal: #8f8b84; --metal-d: #b3aea6; --tip-bg: #f0ebe4; --tip-fg: #161411;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #161411; --card: #201d19; --ink: #f0ebe4; --ink-2: #c6beb3; --muted: #9a9388;
+  --line: #34302b; --line-2: #4b463f; --accent: #dba571; --s-new: #b57a45; --s-now: #5b8bc6; --s-ref: #6d6860;
+  --bad: #e8695f; --bad-wash: rgba(232, 105, 95, .2); --warn: #e0a83a; --good: #62bb68; --zone: rgba(219, 165, 113, .18);
+  --metal: #8f8b84; --metal-d: #b3aea6; --tip-bg: #f0ebe4; --tip-fg: #161411;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 24px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; color: var(--ink); }
+h1 {
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: .98;
+  letter-spacing: -.025em;
+}
+h1 .lint {
+  text-decoration: underline wavy var(--bad);
+  text-decoration-thickness: 3px;
+  text-underline-offset: .14em;
+  text-decoration-skip-ink: none;
+}
+h2 { font-size: clamp(1.7rem, 4.4vw, 2.4rem); font-weight: 750; line-height: 1.08; letter-spacing: -.015em; }
+h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.005em; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--accent); text-underline-offset: .18em; }
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.block { display: flex; flex-direction: column; gap: 22px; }
+.block > header { display: flex; flex-direction: column; gap: 10px; }
+.note { font-size: .9rem; color: var(--ink-2); }
+.mono { font-family: var(--f-mono); }
+.small { font-size: .82rem; color: var(--muted); }
+
+/* CR ticket strip */
+.cr {
+  border-block: 1px solid var(--line-2);
+  padding-block: 12px;
+}
+.cr dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 20px;
+}
+.cr div { min-width: 0; }
+.cr dt {
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cr dd { margin: 0; font-family: var(--f-mono); font-size: .88rem; color: var(--ink); }
+
+/* Hero */
+.hero { display: flex; flex-direction: column; gap: 22px; }
+.lede { font-size: 1.12rem; color: var(--ink-2); max-width: 60ch; }
+.slab { margin: 6px 0 0; display: flex; flex-direction: column; gap: 8px; }
+.slab canvas { display: block; width: 100%; max-width: 100%; }
+.slab figcaption, .swatch-cap {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px;
+  font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
+}
+
+/* KPI row */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line-2);
+}
+.kpi {
+  padding: 16px 16px 4px 0;
+  display: flex; flex-direction: column; gap: 2px;
+  min-width: 0;
+}
+.kpi + .kpi { padding-left: 16px; border-left: 1px solid var(--line); }
+.kpi .v {
+  font-family: var(--f-display);
+  font-weight: 750;
+  font-size: clamp(1.9rem, 4.6vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.kpi .v small { font-size: .5em; font-weight: 600; letter-spacing: 0; color: var(--ink-2); }
+.kpi .l { font-weight: 600; font-size: .95rem; }
+.kpi .s { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); }
+
+/* Cross-section figure */
+.xs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+.xs figure {
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 14px 10px;
+  display: flex; flex-direction: column; gap: 6px;
+  min-width: 0;
+}
+.xs .cap-t { font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; }
+.xs .cap-s { font-size: .85rem; color: var(--ink-2); }
+.xs svg { width: 100%; height: auto; display: block; }
+.xs-paper { fill: var(--mat-paper); }
+.xs-honey { fill: none; stroke: var(--mat-honey); stroke-width: 1; }
+.xs-chip { fill: var(--mat-chip); }
+.xs-speck { fill: var(--mat-chip-d); }
+.xs-speck2 { fill: var(--mat-chip-l); }
+.xs-skin { fill: var(--mat-ikea); stroke: var(--mat-ikea-edge); stroke-width: 1; }
+.xs-decor { fill: var(--mat-walnut); }
+.xs-crack { fill: none; stroke: var(--bad); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.xs-metal { fill: var(--metal); }
+.xs-metal-dark { fill: var(--metal-d); }
+.xs-arm { stroke: var(--metal); stroke-width: 7; stroke-linecap: round; }
+.xs-monitor { fill: var(--ink); }
+.xs-torque { fill: none; stroke: var(--ink-2); stroke-width: 1.6; }
+.xs-arrowhead { fill: var(--ink-2); }
+.xs-label { font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; fill: var(--ink-2); }
+.xs-label.xs-bad { fill: var(--bad); }
+.xs-label.xs-good { fill: var(--good); }
+.xs-lead { stroke: var(--muted); stroke-width: 1; }
+.xs-lead.bad { stroke: var(--bad); }
+.xs-lead.good { stroke: var(--good); }
+
+/* Floor plans */
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+  background: var(--card);
+}
+.seg button {
+  font: 500 .88rem var(--f-mono);
+  color: var(--ink-2);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.ctrl { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
+.ctrl-label { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.plans-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.plans { display: flex; gap: 24px; align-items: flex-start; }
+.plan { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.plan-now { flex: 134 1 0; }
+.plan-new { flex: 174 1 0; }
+.plan figcaption { font-family: var(--f-mono); font-size: .8rem; color: var(--ink-2); }
+.plan figcaption b { color: var(--ink); font-weight: 500; }
+.plan svg { width: 100%; height: auto; display: block; overflow: visible; }
+.pl-ikea { fill: var(--mat-ikea); stroke: var(--mat-ikea-edge); stroke-width: .4; }
+.pl-walnut { fill: var(--mat-walnut); stroke: var(--mat-walnut-edge); stroke-width: .5; }
+.pl-grain-i { fill: none; stroke: var(--grain-i); stroke-width: .3; }
+.pl-grain-w { fill: none; stroke: var(--grain-w); stroke-width: .35; }
+.pl-mon { fill: var(--obj-dark); }
+.pl-arm { stroke: var(--obj-arm); stroke-width: 1.3; stroke-linecap: round; }
+.pl-clamp { fill: var(--obj-arm); }
+.pl-obj { fill: var(--obj-light); stroke: var(--obj-line); stroke-width: .35; }
+.pl-screen { stroke: var(--obj-dark); stroke-width: 1.2; stroke-linecap: round; }
+.pl-key { stroke: var(--obj-key); stroke-width: .3; }
+.pl-coffee { fill: var(--coffee); }
+.pl-coll { stroke: var(--bad); stroke-width: .5; }
+.pl-hatch { stroke: var(--bad); stroke-width: .8; }
+.pl-hatch-bg { fill: var(--bad-wash); }
+.pl-free { fill: var(--free-fill); stroke: var(--free-line); stroke-width: .4; stroke-dasharray: 1.6 1.2; }
+.legend {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  font-size: .82rem; color: var(--ink-2);
+  margin: 0; padding: 0; list-style: none;
+}
+.legend li { display: inline-flex; align-items: center; gap: 7px; }
+.key {
+  display: inline-block; width: 14px; height: 10px; border-radius: 2px; flex: none;
+  border: 1px solid var(--line-2);
+}
+.key.mon { background: var(--obj-dark); height: 5px; }
+.key.obj { background: var(--obj-light); border-color: var(--obj-line); }
+.key.cup { background: var(--coffee); border-radius: 50%; width: 10px; }
+.key.coll { background: repeating-linear-gradient(45deg, var(--bad) 0 1.5px, var(--bad-wash) 1.5px 4px); border-color: var(--bad); }
+.key.free { background: var(--mat-walnut); border: 1px dashed var(--free-line); outline: 1px solid var(--mat-walnut); }
+.key.now { background: var(--s-now); border: 0; }
+.key.new { background: var(--s-new); border: 0; }
+.key.self { background: repeating-linear-gradient(135deg, var(--s-new) 0 1.5px, transparent 1.5px 4px); border-color: var(--s-new); }
+.key.line { width: 3px; height: 14px; background: var(--ink); border: 0; border-radius: 0; }
+.key.zone { background: var(--zone); border: 1px solid var(--s-new); }
+.plan-msg { font-size: 1rem; }
+.plan-msg strong { font-weight: 600; }
+
+/* Bar charts (HTML) */
+.chart-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 18px 14px;
+  display: flex; flex-direction: column; gap: 14px;
+  min-width: 0;
+}
+.chart-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.chart-head .unit { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); }
+.chart {
+  display: grid;
+  grid-template-columns: minmax(7rem, 12.5rem) minmax(0, 1fr);
+  column-gap: 14px;
+  row-gap: 12px;
+  align-items: center;
+}
+.c-label { font-size: .86rem; color: var(--ink-2); line-height: 1.25; grid-column: 1; }
+.c-label b { display: block; color: var(--ink); font-weight: 600; font-size: .92rem; }
+.c-track { grid-column: 2; position: relative; height: 26px; }
+.c-bar {
+  position: absolute; left: 0; top: 3px; height: 20px;
+  background: var(--c);
+  border-radius: 0 4px 4px 0;
+  min-width: 3px;
+  z-index: 1;
+}
+.c-bar.self {
+  background: repeating-linear-gradient(135deg, var(--s-new) 0 2px, transparent 2px 6px);
+  box-shadow: inset 0 0 0 1px var(--s-new);
+}
+.c-val {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-family: var(--f-mono); font-size: .8rem; font-weight: 500; color: var(--ink);
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+  z-index: 3; background: var(--card); padding: 0 4px; margin-left: -4px;
+}
+.c-layer { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.c-gridlayer { z-index: 0; }
+.c-marklayer { z-index: 2; }
+.c-gl { position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--line); }
+.c-gl.base { background: var(--line-2); }
+.c-mark { position: absolute; top: -8px; bottom: -8px; width: 2px; margin-left: -1px; background: var(--ink); }
+.c-axis { grid-column: 2; position: relative; height: 1.2em; }
+.c-axis span {
+  position: absolute; top: 0; transform: translateX(-50%);
+  font-family: var(--f-mono); font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.c-axis span:first-child { transform: none; }
+[data-tip] { cursor: default; }
+
+/* Height chart extras */
+.h-dot {
+  position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px;
+  border-radius: 50%; background: var(--s-now); box-shadow: 0 0 0 2px var(--card); z-index: 1;
+}
+.h-range {
+  position: absolute; top: 50%; height: 14px; margin-top: -7px;
+  background: var(--s-new); border-radius: 7px; box-shadow: 0 0 0 2px var(--card); z-index: 1;
+}
+.h-zone { position: absolute; top: -10px; bottom: -10px; background: var(--zone); border-inline: 1px solid var(--s-new); }
+.h-zl { grid-column: 2; position: relative; height: 1.2em; }
+.h-zl span {
+  position: absolute; top: 0; transform: translateX(-50%);
+  font-family: var(--f-mono); font-size: .72rem; color: var(--ink-2); white-space: nowrap;
+}
+.slider { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.slider label { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.slider input[type="range"] { flex: 1 1 180px; accent-color: var(--s-new); min-width: 0; }
+.slider output { font-family: var(--f-mono); font-size: 1rem; font-weight: 500; min-width: 4.5em; }
+.status { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.status li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; font-size: .9rem; }
+.status .who { font-weight: 600; min-width: 7.5rem; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .86rem; color: var(--ink);
+}
+.pill i {
+  font-style: normal; font-weight: 700; font-family: var(--f-mono);
+  display: inline-grid; place-items: center;
+  width: 1.25em; height: 1.25em; border-radius: 50%;
+  font-size: .78rem; color: var(--card);
+}
+.pill.ok i { background: var(--good); }
+.pill.warn i { background: var(--warn); }
+.pill.no i { background: var(--bad); }
+
+/* Style section */
+.styles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.style-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.style-card .who { font-family: var(--f-mono); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.style-card h3 { font-size: 1.12rem; }
+.style-card p { font-size: .95rem; color: var(--ink-2); }
+.sw-now {
+  aspect-ratio: 16 / 7; max-width: 100%; border-radius: 3px;
+  border: 1px solid var(--mat-ikea-edge);
+  background:
+    repeating-linear-gradient(1deg, var(--grain-i) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(179.4deg, var(--grain-i) 0 1px, transparent 1px 23px),
+    var(--mat-ikea);
+}
+.sw-new { display: block; width: 100%; max-width: 100%; }
+.pips { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.pips th, .pips td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.pips thead th { font-family: var(--f-mono); font-size: .72rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.pips tbody th { font-weight: 500; color: var(--ink); }
+.piprow { display: inline-flex; gap: 4px; }
+.piprow i { width: 12px; height: 12px; border-radius: 2px; border: 1.5px solid var(--line-2); display: inline-block; }
+.piprow.now i.on { background: var(--s-now); border-color: var(--s-now); }
+.piprow.new i.on { background: var(--s-new); border-color: var(--s-new); }
+.callout {
+  border-left: 3px solid var(--s-new);
+  padding: 4px 0 4px 14px;
+  font-size: .98rem;
+}
+
+/* Price table */
+.price { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; max-width: 34rem; }
+.price dt, .price dd { padding: 8px 0; border-bottom: 1px solid var(--line); margin: 0; }
+.price dd { font-family: var(--f-mono); text-align: right; font-variant-numeric: tabular-nums; padding-left: 16px; }
+.price .total { font-weight: 600; border-bottom: 2px solid var(--ink); }
+
+/* FAQ */
+.faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 32px; margin: 0; }
+.faq div { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.faq dt { font-family: var(--f-display); font-weight: 700; font-size: 1.06rem; }
+.faq dt::before { content: "„"; color: var(--accent); }
+.faq dt::after { content: "”"; color: var(--accent); }
+.faq dd { margin: 0; font-size: .95rem; color: var(--ink-2); }
+.fine { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; max-width: 68ch; }
+.fine li { padding-left: 4px; }
+.fine li::marker { color: var(--accent); }
+
+/* Approval */
+.cab {
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 18px;
+  background: var(--card);
+}
+.choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.choices button {
+  font: 600 .98rem var(--f-body);
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+.choices button.primary { background: var(--s-new); border-color: var(--s-new); color: #fff; }
+.choices button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.cab-out { min-height: 1.6em; font-size: 1.02rem; }
+.sign { display: flex; flex-wrap: wrap; gap: 14px 40px; font-family: var(--f-mono); font-size: .8rem; color: var(--muted); }
+.sign span { display: inline-flex; flex-direction: column; gap: 4px; min-width: 14rem; }
+.sign span::before { content: ""; border-bottom: 1px solid var(--line-2); height: 28px; }
+
+footer.src { border-top: 1px solid var(--line-2); padding-top: 18px; display: flex; flex-direction: column; gap: 8px; font-size: .85rem; color: var(--ink-2); }
+footer.src ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+#tip {
+  position: fixed; z-index: 20; pointer-events: none;
+  background: var(--tip-bg); color: var(--tip-fg);
+  font: 500 .78rem/1.35 var(--f-mono);
+  padding: 6px 9px; border-radius: 5px; max-width: 260px;
+}
+
+@media (max-width: 680px) {
+  body { font-size: 16px; }
+  .wrap { gap: 64px; }
+  .cr dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .status .who { flex-basis: 100%; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi:nth-child(3) { padding-left: 0; border-left: 0; }
+  .kpi:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .xs, .styles, .faq { grid-template-columns: 1fr; }
+  .plans { flex-direction: column; gap: 18px; }
+  .plan-now { flex: none; width: 77.01%; }
+  .plan-new { flex: none; width: 100%; }
+  .plans-box, .chart-box { padding: 14px; }
+  .chart { grid-template-columns: 6.6rem minmax(0, 1fr); column-gap: 10px; }
+  .c-label { font-size: .8rem; }
+  .c-label b { font-size: .86rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seg button, .choices button { transition: background-color .15s ease, color .15s ease; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="cr" aria-label="Kérelem adatai">
+    <dl>
+      <div><dt>Változáskérelem</dt><dd>CR-2026-0042</dd></div>
+      <div><dt>Tárgy</dt><dd>asztalcsere</dd></div>
+      <div><dt>Kérelmező</dt><dd>a férjed</dd></div>
+      <div><dt>Jóváhagyó</dt><dd>te, vétójoggal</dd></div>
+      <div><dt>Prioritás</dt><dd>magas (a hátam szerint)</dd></div>
+      <div><dt>Olvasási idő</dt><dd>1 kávé</dd></div>
+    </dl>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">A probléma, egy mondatban</p>
+    <h1>Az asztalom <span class="lint">papírból</span> van.</h1>
+    <p class="lede">Szó szerint: a mostani IKEA-lap belseje méhsejt szerkezetű papírtöltet. Ezen áll két monitorállvány, két laptop és két teljes munkaállomás. Ezen az egy oldalon összeszedtem, miért lenne jobb helyette egy 160 × 80-as, dijoni dió színű, szélezetlen lap egy motoros Liftor Rock kereten. Számokkal, ábrákkal, és csak a legszükségesebb nyavalygással.</p>
+    <figure class="slab">
+      <canvas id="slab" role="img" aria-label="Felülnézeti rajz: 160 × 80 cm-es, dió színű asztallap, hullámos, szélezetlen hosszanti élekkel."></canvas>
+      <figcaption><span>Javasolt: Liftor Rock + Természetes dijoni dió (H3734), szélezetlen</span><span>160 × 80 × 2,5 cm · 2 : 1 arányban</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="kpis" aria-label="A lényeg számokban">
+    <div class="kpi"><span class="v">+78%</span><span class="l">asztalfelület</span><span class="s">0,72 m² → 1,28 m²</span></div>
+    <div class="kpi"><span class="v">3,5×</span><span class="l">teherbírás</span><span class="s">50 kg → ~179 kg nettó</span></div>
+    <div class="kpi"><span class="v">72–120<small> cm</small></span><span class="l">állítható magasság</span><span class="s">eddig fix 73 cm</span></div>
+    <div class="kpi"><span class="v">~148<small> Ft</small></span><span class="l">munkanaponként</span><span class="s">5 év, 230 munkanap/év</span></div>
+  </section>
+
+  <!-- 1. Current state -->
+  <section class="block" id="most">
+    <header>
+      <p class="eyebrow">Jelenlegi állapot</p>
+      <h2>Tölgyhatású. A hatás elmaradt.</h2>
+    </header>
+    <p>A mostani asztal egy LAGKAPTEN/ALEX kombináció: 120 × 60 cm, fix 73 cm magas. Az IKEA saját adatlapja szerint <strong>50 kg-ot bír egyenletesen elosztva</strong>, egy kisebb felületre pedig <strong>legfeljebb 15 kg</strong> tehető. Egy monitorállvány szorítója pontosan ilyen kisebb felület. Nekünk kettő van belőle.</p>
+
+    <div class="xs">
+      <figure>
+        <span class="cap-t">Most: méhsejtes lap</span>
+        <span class="cap-s">Két vékony héj, köztük papír. Keret csak a szélén.</span>
+        <svg viewBox="0 0 360 250" role="img" aria-labelledby="xsA-t">
+          <title id="xsA-t">Metszet: a méhsejtes lapon a monitorkar szorítójának csavarja a papírtöltet alatti vékony alsó héjat nyomja be.</title>
+          <defs>
+            <pattern id="honeyA" width="12" height="15" y="135" patternUnits="userSpaceOnUse">
+              <path class="xs-honey" d="M0 0 L6 7.5 L0 15 M12 0 L6 7.5 L12 15"/>
+            </pattern>
+            <pattern id="chipA" width="9" height="9" patternUnits="userSpaceOnUse">
+              <rect width="9" height="9" class="xs-chip"/>
+              <rect x="1" y="2" width="2" height="1.4" class="xs-speck"/>
+              <rect x="5" y="6" width="2.4" height="1.2" class="xs-speck"/>
+              <rect x="6" y="1" width="1.4" height="1.4" class="xs-speck2"/>
+              <rect x="2" y="6.5" width="1.2" height="1.6" class="xs-speck2"/>
+            </pattern>
+            <marker id="arrA" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L8 4 L0 8 Z" class="xs-arrowhead"/>
+            </marker>
+          </defs>
+          <rect x="24" y="135" width="320" height="30" class="xs-paper"/>
+          <rect x="24" y="135" width="320" height="30" fill="url(#honeyA)"/>
+          <rect x="24" y="135" width="24" height="30" fill="url(#chipA)"/>
+          <rect x="320" y="135" width="24" height="30" fill="url(#chipA)"/>
+          <rect x="24" y="130" width="320" height="5" class="xs-skin"/>
+          <path class="xs-skin" d="M24 165 L48 165 C56 165 60 159 66 159 C72 159 76 165 84 165 L344 165 L344 170 L84 170 C76 170 72 164 66 164 C60 164 56 170 48 170 L24 170 Z"/>
+          <path class="xs-crack" d="M60 156 l3 -5 l-2 -3 l3 -4 M71 155 l-2 -4 l3 -3 l-1 -4"/>
+          <rect x="6" y="116" width="90" height="14" rx="2" class="xs-metal"/>
+          <rect x="6" y="116" width="10" height="86" rx="2" class="xs-metal"/>
+          <rect x="6" y="192" width="90" height="10" rx="2" class="xs-metal"/>
+          <rect x="63" y="166" width="6" height="26" class="xs-metal"/>
+          <rect x="52" y="163" width="28" height="4" rx="1" class="xs-metal-dark"/>
+          <rect x="40" y="40" width="10" height="76" rx="2" class="xs-metal"/>
+          <line x1="45" y1="50" x2="232" y2="60" class="xs-arm"/>
+          <circle cx="140" cy="55" r="5" class="xs-metal-dark"/>
+          <rect x="232" y="18" width="10" height="86" rx="2" class="xs-monitor"/>
+          <path d="M27 36 A19 19 0 0 1 63 36" class="xs-torque" marker-end="url(#arrA)"/>
+          <text x="72" y="26" class="xs-label">nyomaték ≈ 24 Nm</text>
+          <text x="252" y="58" class="xs-label">monitor</text>
+          <text x="252" y="73" class="xs-label">~6 kg</text>
+          <line x1="322" y1="121" x2="322" y2="131" class="xs-lead"/>
+          <text x="352" y="116" text-anchor="end" class="xs-label">vékony héj</text>
+          <line x1="101" y1="181" x2="81" y2="168" class="xs-lead bad"/>
+          <text x="104" y="186" class="xs-label xs-bad">csavar → papír</text>
+          <line x1="250" y1="204" x2="250" y2="152" class="xs-lead"/>
+          <text x="250" y="217" text-anchor="middle" class="xs-label">papír méhsejt</text>
+          <line x1="332" y1="228" x2="332" y2="171" class="xs-lead"/>
+          <text x="352" y="242" text-anchor="end" class="xs-label">forgácslap keret (csak a szélén)</text>
+        </svg>
+      </figure>
+      <figure>
+        <span class="cap-t">Új: 25 mm faforgácslap</span>
+        <span class="cap-s">Végig tömör anyag, dió dekor borítással.</span>
+        <svg viewBox="0 0 360 250" role="img" aria-labelledby="xsB-t">
+          <title id="xsB-t">Metszet: a tömör forgácslapon ugyanaz a szorító a teljes anyagvastagságra támaszkodik, nincs benyomódás.</title>
+          <defs>
+            <pattern id="chipB" width="9" height="9" patternUnits="userSpaceOnUse">
+              <rect width="9" height="9" class="xs-chip"/>
+              <rect x="1" y="2" width="2" height="1.4" class="xs-speck"/>
+              <rect x="5" y="6" width="2.4" height="1.2" class="xs-speck"/>
+              <rect x="6" y="1" width="1.4" height="1.4" class="xs-speck2"/>
+              <rect x="2" y="6.5" width="1.2" height="1.6" class="xs-speck2"/>
+            </pattern>
+            <marker id="arrB" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L8 4 L0 8 Z" class="xs-arrowhead"/>
+            </marker>
+          </defs>
+          <rect x="24" y="132" width="320" height="36" fill="url(#chipB)"/>
+          <rect x="24" y="130" width="320" height="2.5" class="xs-decor"/>
+          <rect x="24" y="167.5" width="320" height="2.5" class="xs-decor"/>
+          <rect x="6" y="116" width="90" height="14" rx="2" class="xs-metal"/>
+          <rect x="6" y="116" width="10" height="86" rx="2" class="xs-metal"/>
+          <rect x="6" y="192" width="90" height="10" rx="2" class="xs-metal"/>
+          <rect x="63" y="174" width="6" height="18" class="xs-metal"/>
+          <rect x="52" y="170" width="28" height="4" rx="1" class="xs-metal-dark"/>
+          <rect x="40" y="40" width="10" height="76" rx="2" class="xs-metal"/>
+          <line x1="45" y1="50" x2="232" y2="60" class="xs-arm"/>
+          <circle cx="140" cy="55" r="5" class="xs-metal-dark"/>
+          <rect x="232" y="18" width="10" height="86" rx="2" class="xs-monitor"/>
+          <path d="M27 36 A19 19 0 0 1 63 36" class="xs-torque" marker-end="url(#arrB)"/>
+          <text x="72" y="26" class="xs-label">ugyanaz a 24 Nm</text>
+          <text x="252" y="58" class="xs-label">monitor</text>
+          <text x="252" y="73" class="xs-label">~6 kg</text>
+          <line x1="322" y1="121" x2="322" y2="131" class="xs-lead"/>
+          <text x="352" y="116" text-anchor="end" class="xs-label">dió dekor</text>
+          <line x1="101" y1="183" x2="81" y2="173" class="xs-lead good"/>
+          <text x="104" y="188" class="xs-label xs-good">a csavar mindenhol fog</text>
+          <line x1="300" y1="204" x2="300" y2="150" class="xs-lead"/>
+          <text x="352" y="217" text-anchor="end" class="xs-label">végig tömör, 25 mm</text>
+        </svg>
+      </figure>
+    </div>
+    <p class="small">Sematikus rajz, nem méretarányos.</p>
+    <p>A fizika röviden: egy kb. 6 kg-os monitor 40 cm-es karon nagyjából <span class="mono" style="white-space: nowrap">6 kg × 9,81 m/s² × 0,4 m ≈ 24 Nm</span> nyomatékkal feszíti a rögzítést. A méhsejtes lapban ezt a vékony felső és alsó héj veszi fel, a kettő között papír van. A tömör lapban a teljes 25 mm. Innen jön az érzés, hogy a mostani asztal teherbírása nagyjából nulla.</p>
+  </section>
+
+  <!-- 2. Floor plans -->
+  <section class="block" id="hely">
+    <header>
+      <p class="eyebrow">Kapacitástervezés</p>
+      <h2>Két konfig, egy asztal</h2>
+    </header>
+    <p>Két laptop, két monitorállvány, két teljes munkaállomás. Felülnézetből, méretarányosan, a két asztal ugyanazzal a léptékkel. A monitorok karon lógnak, alattuk a laptop, elöl billentyűzet és egér.</p>
+    <div class="plans-box">
+      <div class="ctrl">
+        <span class="ctrl-label" id="mon-l">Monitorméret</span>
+        <div class="seg" role="group" aria-labelledby="mon-l">
+          <button type="button" id="mon-24" data-size="24" aria-pressed="false">24″</button>
+          <button type="button" id="mon-27" data-size="27" aria-pressed="true">27″</button>
+          <button type="button" id="mon-32" data-size="32" aria-pressed="false">32″</button>
+        </div>
+      </div>
+      <div class="plans">
+        <figure class="plan plan-now">
+          <figcaption><b>Most</b> · 120 × 60 cm</figcaption>
+          <svg id="plan-now" role="img" aria-label="A mostani 120 × 60 cm-es asztal felülnézetből, két munkaállomással."></svg>
+        </figure>
+        <figure class="plan plan-new">
+          <figcaption><b>Új</b> · 160 × 80 cm</figcaption>
+          <svg id="plan-new" role="img" aria-label="Az új 160 × 80 cm-es asztal felülnézetből, két munkaállomással."></svg>
+        </figure>
+      </div>
+      <ul class="legend" aria-label="Jelmagyarázat">
+        <li><span class="key mon"></span>monitor, karon</li>
+        <li><span class="key obj"></span>laptop, billentyűzet, egér</li>
+        <li><span class="key cup"></span>kávé</li>
+        <li><span class="key coll"></span>ütközik vagy lelóg</li>
+        <li><span class="key free"></span>szabad sáv</li>
+      </ul>
+      <p class="plan-msg" id="plan-msg" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- 3. Load + height -->
+  <section class="block" id="szamok">
+    <header>
+      <p class="eyebrow">Hatáselemzés</p>
+      <h2>Mennyit bír, és milyen magasra megy</h2>
+    </header>
+
+    <div class="chart-box">
+      <div class="chart-head"><h3>Teherbírás</h3><span class="unit">kg</span></div>
+      <ul class="legend">
+        <li><span class="key now"></span>Most (IKEA)</li>
+        <li><span class="key new"></span>Új (Liftor Rock)</li>
+        <li><span class="key self"></span>a lap saját súlya</li>
+        <li><span class="key line"></span>ami ma rajta van, kb. 25 kg</li>
+      </ul>
+      <div id="load"></div>
+      <p class="note">A mai terhelés becslés: 2 × monitor (~6 kg) + 2 × monitorkar (~4 kg) + 2 × laptop (~1,6 kg) + perifériák (~2 kg) ≈ 25 kg. Nem mértem le, a mérleg a fürdőszobában van, és ott is marad. A lap súlya: 160 × 80 × 2,5 cm forgácslap, kb. 650 kg/m³ sűrűséggel ≈ 21 kg, ezt levontam a 200 kg-ból.</p>
+    </div>
+
+    <div class="chart-box">
+      <div class="chart-head"><h3>Magasság</h3><span class="unit">cm</span></div>
+      <div class="slider">
+        <label for="bodyh">Testmagasság</label>
+        <input type="range" id="bodyh" min="150" max="200" step="1" value="180">
+        <output id="bodyh-out" for="bodyh">180 cm</output>
+      </div>
+      <ul class="legend">
+        <li><span class="key now"></span>Most: fix magasság</li>
+        <li><span class="key new"></span>Új: állítható tartomány</li>
+        <li><span class="key zone"></span>ideális magasság ±2 cm (becslés)</li>
+      </ul>
+      <div id="height" class="chart"></div>
+      <ul class="status" id="h-status" aria-live="polite"></ul>
+      <p class="note">Ökölszabály: ülve a testmagasság kb. 40,5%-a, állva kb. 62,5%-a, könyökmagasságban. Nem orvosi tanács, csak geometria. Húzd a csúszkát a saját magasságodra: a 3 memóriagombból egy a tiéd.</p>
+      <p class="note">Ülőből állóba kb. 20 másodperc (20 mm/s), 49 dB mellett. Ez halkabb egy normál beszélgetésnél.</p>
+    </div>
+  </section>
+
+  <!-- 4. Style -->
+  <section class="block" id="stilus">
+    <header>
+      <p class="eyebrow">UX / stílus</p>
+      <h2>És végre lenne stílusa</h2>
+    </header>
+    <div class="styles">
+      <div class="style-card">
+        <span class="who">Most</span>
+        <div class="sw-now" role="img" aria-label="Fehérre pácolt tölgyhatású felület mintája"></div>
+        <h3>Fehérre pácolt tölgyhatás, fehér</h3>
+        <p>Egy kollégiumi szoba és egy fogorvosi váró közös gyereke. Nincs vele baj, csak nincs személyisége. A „tölgyhatás” annyit jelent, hogy a tölgy hatására készült.</p>
+      </div>
+      <div class="style-card">
+        <span class="who">Új</span>
+        <canvas class="sw-new" id="swatch" role="img" aria-label="Természetes dijoni dió felület mintája, szélezetlen éllel"></canvas>
+        <h3>Természetes dijoni dió, szélezetlen, fekete keret</h3>
+        <p>A lap hosszanti széle nem vonalzót követ, hanem egy fatörzs vonalát. A meleg, közepesen sötét dió a szobát nem irodává, hanem szobává teszi. Kevésbé látszik rajta a kávéfolt is, ami nálunk nem elméleti kérdés.</p>
+      </div>
+    </div>
+    <table class="pips">
+      <caption class="small" style="caption-side: bottom; text-align: left; padding-top: 8px;">Teljesen szubjektív skála. A mérőműszer én voltam.</caption>
+      <thead><tr><th scope="col">Stílusmérő</th><th scope="col">Most</th><th scope="col">Új</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Melegség</th><td><span class="piprow now" data-n="1"></span></td><td><span class="piprow new" data-n="5"></span></td></tr>
+        <tr><th scope="row">Karakter</th><td><span class="piprow now" data-n="1"></span></td><td><span class="piprow new" data-n="5"></span></td></tr>
+        <tr><th scope="row">Bútor, nem irodaszer</th><td><span class="piprow now" data-n="1"></span></td><td><span class="piprow new" data-n="5"></span></td></tr>
+        <tr><th scope="row">A vendég megkérdezi, hol vettük</th><td><span class="piprow now" data-n="0"></span></td><td><span class="piprow new" data-n="4"></span></td></tr>
+      </tbody>
+    </table>
+    <p class="callout">A Liftor ingyen küld dekormintát. Előbb kézbe vesszük a színt, és csak utána döntünk.</p>
+  </section>
+
+  <!-- 5. Cost -->
+  <section class="block" id="koltseg">
+    <header>
+      <p class="eyebrow">Költség</p>
+      <h2>Kevesebb, mint egy kávé. Naponta.</h2>
+    </header>
+    <dl class="price">
+      <dt>Liftor Rock, 160 × 80-as lappal</dt><dd>149 990 Ft-tól</dd>
+      <dt>Szélezetlen él</dt><dd>+ 19 990 Ft</dd>
+      <dt class="total">Összesen, kb.</dt><dd class="total">169 980 Ft</dd>
+    </dl>
+    <p class="note">A liftor.hu 2026. októberi ára alapján. A pontos végösszeget a konfigurátor mondja meg, pár ezer forint eltérés lehet.</p>
+    <div class="chart-box">
+      <div class="chart-head"><h3>Egy munkanap ára</h3><span class="unit">Ft</span></div>
+      <div id="cost"></div>
+      <p class="note">Az asztal csíkja nem hiba. Ennyi. Az 5 év nem légből kapott: ennyi a garancia a motorra és a lábakra (a lapra és a kiegészítőkre 2 év). A mostani asztal ára egyébként 45 980 Ft. Nem volt kidobott pénz, csak kinőttük.</p>
+    </div>
+  </section>
+
+  <!-- 6. Objections -->
+  <section class="block" id="ellenvetesek">
+    <header>
+      <p class="eyebrow">Kockázatok</p>
+      <h2>Várható ellenvetések</h2>
+    </header>
+    <dl class="faq">
+      <div><dt>Túl nagy lesz.</dt><dd>Szélességben +40 cm, mélységben +20 cm. Rendelés előtt lemérem, és festőszalaggal kijelölöm a padlón, hogy lásd. Ha nem fér el, nincs vita.</dd></div>
+      <div><dt>Zajos lesz.</dt><dd>49 dB, és csak amíg mozog. Egy porszívó kb. 70 dB, és az nem áll le 20 másodperc után.</dd></div>
+      <div><dt>Mi lesz a régi asztallal?</dt><dd>Eladom vagy elviszem. 30 napon belül eltűnik a lakásból. Ez vállalás, nem szándéknyilatkozat.</dd></div>
+      <div><dt>Ez megint egy kütyü.</dt><dd>Nem. Ez bútor, amit történetesen motor emel. Nincs hozzá előfizetés, és nem kér frissítést hajnali kettőkor.</dd></div>
+      <div><dt>És a kábelek?</dt><dd>Kábeltálca a lap alá, tépőzár, rend. A kábelek nem fognak lógni. Ezt is vállalom, írásban, itt.</dd></div>
+      <div><dt>Ki szereli össze?</dt><dd>Én. A keret 45 kg, úgyhogy egy délutánra kell mellém egy második ember. A pizzát én állom.</dd></div>
+    </dl>
+  </section>
+
+  <!-- 7. Fine print -->
+  <section class="block" id="apro-betu">
+    <header>
+      <p class="eyebrow">Apró betű</p>
+      <h2>Amit nem hallgatok el</h2>
+    </header>
+    <ul class="fine">
+      <li>A lap nem tömör dió, hanem faforgácslap dió dekorral (H3734). Cserébe nem kell olajozni, bírja a bögrét, és nem háromszor ennyibe kerül.</li>
+      <li>A 200 kg emelőerőbe a lap súlya is beleszámít, ezért írtam fent nettó ~179 kg-ot. Még így is több mint háromszorosa a mostaninak.</li>
+      <li>A Rock legalacsonyabb állása 72 cm. Ez gyakorlatilag ugyanaz, mint a mostani fix 73 cm, tehát rosszabb nem lesz. Kb. 178 cm testmagasság alatt ülve egy lábtartó segít.</li>
+      <li>A monitorkarok szorítója alá alátétlemez kerül (pár ezer forint). A forgácslap sokkal jobb, mint a papír, de nem acél.</li>
+      <li>Visszaállítási terv nincs. Ez egyirányú migráció.</li>
+    </ul>
+  </section>
+
+  <!-- 8. Approval -->
+  <section class="block" id="jovahagyas">
+    <header>
+      <p class="eyebrow">Jóváhagyás</p>
+      <h2>A CAB döntése</h2>
+    </header>
+    <div class="cab">
+      <p>A Change Advisory Board ebben a háztartásban egyfős, és te vagy az. Kérlek, válassz:</p>
+      <div class="choices" role="group" aria-label="Döntés">
+        <button type="button" id="cab-yes" class="primary" data-r="yes" aria-pressed="false">Jóváhagyom</button>
+        <button type="button" id="cab-cond" data-r="cond" aria-pressed="false">Jóváhagyom, feltételekkel</button>
+        <button type="button" id="cab-no" data-r="no" aria-pressed="false">Visszadobom</button>
+      </div>
+      <p class="cab-out" id="cab-out" aria-live="polite"></p>
+      <div class="sign">
+        <span>Jóváhagyó aláírása</span>
+        <span>Kelt: 2026. október 9.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="src">
+    <strong>Források</strong>
+    <ul>
+      <li><a href="https://www.ikea.com/hu/hu/p/lagkapten-alex-iroasztal-feherre-pacolt-toelgy-hatas-feher-s09416962/">IKEA LAGKAPTEN/ALEX íróasztal</a>: 120 × 60 × 73 cm, 50 kg egyenletesen, kisebb felületre max. 15 kg, méhsejt papírtöltet, 45 980 Ft.</li>
+      <li><a href="https://www.liftor.hu/liftor-rock-id18429.html">Liftor Rock</a>: 200 kg, 2 motor, 72–120 cm, 20 mm/s, 49 dB, 3 memória, ütközésgátló, 5 év garancia a motorra és a lábakra, max. lapméret 200 × 80 cm.</li>
+      <li><a href="https://www.liftor.hu/termeszetes-dijoni-dio-h3734-id16888.html">Természetes dijoni dió (H3734) asztallap</a>: faforgácslap, 160 × 80 cm, 2,5 vagy 3,8 cm, szélezetlen él +19 990 Ft.</li>
+    </ul>
+    <p class="small">Adatok: 2026. október 9. A „kb.” és „~” jelölésű számok becslések (tömegek, kávéár, gyógytorna-ár, ergonómiai magasság).</p>
+  </footer>
+</div>
+
+<div id="tip" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var nf1 = new Intl.NumberFormat("hu-HU", { maximumFractionDigits: 1, minimumFractionDigits: 0 });
+  var nf0 = new Intl.NumberFormat("hu-HU", { maximumFractionDigits: 0 });
+  function fmt1(v) { return nf1.format(Math.round(v * 10) / 10); }
+  function fmt0(v) { return nf0.format(Math.round(v)); }
+
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  /* ---------- Walnut slab (canvas) ---------- */
+  function drawWood(cv, opt) {
+    var cssW = cv.clientWidth;
+    if (!cssW) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var mx = opt.mx, my = opt.my;
+    var sw = cssW - 2 * mx, sh = sw * opt.ratio, cssH = sh + 2 * my;
+    cv.style.height = cssH + "px";
+    cv.width = Math.round(cssW * dpr);
+    cv.height = Math.round(cssH * dpr);
+    var g = cv.getContext("2d");
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, cssW, cssH);
+    var R = mulberry32(opt.seed);
+    var ph = [R() * 6, R() * 6, R() * 6, R() * 6, R() * 6, R() * 6];
+    var amp = sh * opt.amp;
+    var TAU = Math.PI * 2;
+    function n(x, a, b, c) {
+      var u = x / sw;
+      return 0.6 * Math.sin(u * TAU * 1.3 + a) + 0.3 * Math.sin(u * TAU * 3.7 + b) + 0.12 * Math.sin(u * TAU * 9.1 + c);
+    }
+    function top(x) { return opt.edgeTop ? my + amp * (1 + n(x, ph[0], ph[1], ph[2])) * 0.5 : my; }
+    function bot(x) { return opt.edgeBottom ? my + sh - amp * 0.75 * (1 + n(x, ph[3], ph[4], ph[5])) * 0.5 : my + sh; }
+
+    var step = 3, x;
+    var path = new Path2D();
+    path.moveTo(mx, top(0));
+    for (x = step; x <= sw; x += step) path.lineTo(mx + x, top(x));
+    path.lineTo(mx + sw, top(sw));
+    path.lineTo(mx + sw, bot(sw));
+    for (x = sw; x >= 0; x -= step) path.lineTo(mx + x, bot(x));
+    path.lineTo(mx, bot(0));
+    path.closePath();
+
+    g.save();
+    g.shadowColor = "rgba(20,10,0,.30)";
+    g.shadowBlur = opt.shadow;
+    g.shadowOffsetY = opt.shadow * 0.45;
+    g.fillStyle = "#7a4f30";
+    g.fill(path);
+    g.restore();
+
+    g.save();
+    g.clip(path);
+    var lg = g.createLinearGradient(0, my, 0, my + sh);
+    lg.addColorStop(0, "#6f4529");
+    lg.addColorStop(0.35, "#8f603c");
+    lg.addColorStop(0.62, "#815434");
+    lg.addColorStop(1, "#6a4127");
+    g.fillStyle = lg;
+    g.fillRect(mx, my - 2, sw, sh + 4);
+
+    var i;
+    for (i = 0; i < 4; i++) {
+      var cx = mx + R() * sw, cy = my + R() * sh, rr = sw * (0.18 + R() * 0.2);
+      var rg = g.createRadialGradient(cx, cy, 0, cx, cy, rr);
+      var light = R() < 0.6;
+      rg.addColorStop(0, light ? "rgba(178,122,74,.30)" : "rgba(60,34,16,.28)");
+      rg.addColorStop(1, "rgba(0,0,0,0)");
+      g.fillStyle = rg;
+      g.fillRect(mx, my, sw, sh);
+    }
+
+    var knots = [];
+    for (i = 0; i < opt.knots; i++) {
+      knots.push({ x: sw * (0.15 + R() * 0.7), y: my + sh * (0.3 + R() * 0.4), r: sh * (0.018 + R() * 0.02) });
+    }
+    var lines = Math.round(sh / 1.5);
+    for (i = 0; i < lines; i++) {
+      var y0 = my - sh * 0.05 + R() * sh * 1.1;
+      var a1 = sh * (0.008 + R() * 0.03), f1 = (0.6 + R() * 2.2) / sw * TAU, p1 = R() * 6;
+      var a2 = sh * 0.006 * R(), f2 = (5 + R() * 12) / sw * TAU;
+      var dark = R() < 0.62;
+      g.strokeStyle = dark ? "rgba(52,28,12," + (0.07 + R() * 0.22).toFixed(3) + ")"
+                           : "rgba(200,150,102," + (0.05 + R() * 0.15).toFixed(3) + ")";
+      g.lineWidth = 0.4 + R() * (dark ? 2.0 : 1.2);
+      g.beginPath();
+      for (x = -6; x <= sw + 6; x += 5) {
+        var y = y0 + a1 * Math.sin(x * f1 + p1) + a2 * Math.sin(x * f2 + p1 * 2);
+        for (var k = 0; k < knots.length; k++) {
+          var kn = knots[k], dy = y - kn.y, dx = x - kn.x;
+          var d2 = (dx * dx) / (kn.r * kn.r * 30) + (dy * dy) / (kn.r * kn.r * 6);
+          if (d2 < 9) y += (dy >= 0 ? 1 : -1) * kn.r * 1.6 * Math.exp(-d2);
+        }
+        if (x === -6) g.moveTo(mx + x, y); else g.lineTo(mx + x, y);
+      }
+      g.stroke();
+    }
+    for (i = 0; i < knots.length; i++) {
+      var kk = knots[i];
+      g.fillStyle = "rgba(42,22,9,.55)";
+      g.beginPath(); g.ellipse(mx + kk.x, kk.y, kk.r * 1.6, kk.r, 0, 0, TAU); g.fill();
+      g.strokeStyle = "rgba(42,22,9,.22)"; g.lineWidth = 1;
+      for (var ring = 1; ring <= 3; ring++) {
+        g.beginPath(); g.ellipse(mx + kk.x, kk.y, kk.r * (1.6 + ring * 1.1), kk.r * (1 + ring * 0.7), 0, 0, TAU); g.stroke();
+      }
+    }
+    var pores = Math.round(sw * sh / 80);
+    g.strokeStyle = "rgba(40,20,8,.13)";
+    g.lineWidth = 0.6;
+    g.beginPath();
+    for (i = 0; i < pores; i++) {
+      var px = mx + R() * sw, py = my + R() * sh, pl = 1.5 + R() * 5;
+      g.moveTo(px, py); g.lineTo(px + pl, py + (R() - 0.5) * 0.6);
+    }
+    g.stroke();
+    var sheen = g.createLinearGradient(mx, my, mx + sw * 0.7, my + sh);
+    sheen.addColorStop(0, "rgba(255,240,220,.10)");
+    sheen.addColorStop(0.5, "rgba(255,240,220,0)");
+    g.fillStyle = sheen;
+    g.fillRect(mx, my, sw, sh);
+    g.restore();
+
+    function edge(fn, inward) {
+      g.beginPath();
+      for (var xx = 0; xx <= sw; xx += step) {
+        var yy = fn(xx);
+        if (xx === 0) g.moveTo(mx + xx, yy); else g.lineTo(mx + xx, yy);
+      }
+      g.strokeStyle = "#3a2314"; g.lineWidth = 2.6; g.stroke();
+      g.beginPath();
+      for (xx = 0; xx <= sw; xx += step) {
+        var y2 = fn(xx) + inward * 2.8;
+        if (xx === 0) g.moveTo(mx + xx, y2); else g.lineTo(mx + xx, y2);
+      }
+      g.strokeStyle = "rgba(220,176,126,.45)"; g.lineWidth = 1.2; g.stroke();
+    }
+    if (opt.edgeTop) edge(top, 1);
+    if (opt.edgeBottom) edge(bot, -1);
+    g.strokeStyle = "rgba(40,22,10,.55)"; g.lineWidth = 1;
+    g.beginPath(); g.moveTo(mx + 0.5, top(0)); g.lineTo(mx + 0.5, bot(0)); g.stroke();
+    g.beginPath(); g.moveTo(mx + sw - 0.5, top(sw)); g.lineTo(mx + sw - 0.5, bot(sw)); g.stroke();
+  }
+
+  var slab = document.getElementById("slab");
+  var swatch = document.getElementById("swatch");
+  function paintWood() {
+    drawWood(slab, { mx: 12, my: 16, ratio: 0.5, amp: 0.085, seed: 160080, edgeTop: true, edgeBottom: true, knots: 2, shadow: 22 });
+    drawWood(swatch, { mx: 0, my: 4, ratio: 7 / 16, amp: 0.12, seed: 3734, edgeTop: true, edgeBottom: false, knots: 1, shadow: 0 });
+  }
+
+  /* ---------- Floor plans (SVG, units = cm) ---------- */
+  var MON = { 24: 53.1, 27: 61.4, 32: 71.3 };
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function wave(x, a, b) { return a * Math.sin(x * 0.13 + b) + a * 0.6 * Math.sin(x * 0.37 + b * 2); }
+
+  function drawPlan(svg, W, D, monW, live, id) {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute("viewBox", "-7 -4 " + (W + 14) + " " + (D + 8));
+    var defs = el("defs", {}, svg);
+    var pat = el("pattern", { id: "hatch-" + id, width: 2.4, height: 2.4, patternUnits: "userSpaceOnUse", patternTransform: "rotate(45)" }, defs);
+    el("rect", { width: 2.4, height: 2.4, "class": "pl-hatch-bg" }, pat);
+    el("line", { x1: 0, y1: 0, x2: 0, y2: 2.4, "class": "pl-hatch" }, pat);
+
+    var x, d;
+    if (live) {
+      d = "M0 " + wave(0, 0.5, 1).toFixed(2);
+      for (x = 2; x <= W; x += 2) d += " L" + x + " " + wave(x, 0.5, 1).toFixed(2);
+      for (x = W; x >= 0; x -= 2) d += " L" + x + " " + (D + wave(x, 0.45, 4)).toFixed(2);
+      d += " Z";
+      el("path", { d: d, "class": "pl-walnut" }, svg);
+    } else {
+      el("rect", { x: 0, y: 0, width: W, height: D, rx: 0.8, "class": "pl-ikea" }, svg);
+    }
+    var R = mulberry32(live ? 11 : 7);
+    for (var i = 0; i < (live ? 16 : 12); i++) {
+      var gy = 2 + R() * (D - 4), ga = 0.4 + R() * 0.9, gp = R() * 6;
+      d = "M1 " + gy.toFixed(2);
+      for (x = 6; x <= W - 1; x += 6) d += " L" + x + " " + (gy + ga * Math.sin(x * 0.05 + gp)).toFixed(2);
+      el("path", { d: d, "class": live ? "pl-grain-w" : "pl-grain-i" }, svg);
+    }
+
+    var zoneTop = 14, zoneBot = D - 43.5;
+    if (zoneBot - zoneTop >= 12) {
+      el("rect", { x: 5, y: zoneTop, width: W - 10, height: zoneBot - zoneTop, rx: 1, "class": "pl-free" }, svg);
+    }
+
+    var centers = [W / 4, 3 * W / 4];
+    centers.forEach(function (c) {
+      el("rect", { x: c - 15.6, y: D - 41.5, width: 31.2, height: 21.5, rx: 1.2, "class": "pl-obj" }, svg);
+      el("line", { x1: c - 14.6, y1: D - 41.2, x2: c + 14.6, y2: D - 41.2, "class": "pl-screen" }, svg);
+      el("rect", { x: c - 12, y: D - 37, width: 24, height: 9, rx: 0.6, "class": "pl-obj" }, svg);
+      el("rect", { x: c - 18, y: D - 18, width: 36, height: 12, rx: 1, "class": "pl-obj" }, svg);
+      for (var r = 1; r <= 3; r++) el("line", { x1: c - 16, y1: D - 18 + r * 3, x2: c + 16, y2: D - 18 + r * 3, "class": "pl-key" }, svg);
+      el("rect", { x: c + 21, y: D - 17, width: 6, height: 10.5, rx: 3, "class": "pl-obj" }, svg);
+      el("rect", { x: c - 3, y: -1, width: 6, height: 5.5, rx: 0.8, "class": "pl-clamp" }, svg);
+      el("line", { x1: c, y1: 3, x2: c, y2: 9, "class": "pl-arm" }, svg);
+      el("rect", { x: c - monW / 2, y: 9, width: monW, height: 2.6, rx: 0.6, "class": "pl-mon" }, svg);
+    });
+    el("circle", { cx: W / 2, cy: D - 12, r: 4.25, "class": "pl-obj" }, svg);
+    el("circle", { cx: W / 2, cy: D - 12, r: 3.2, "class": "pl-coffee" }, svg);
+
+    var a1 = centers[0] - monW / 2, b1 = centers[0] + monW / 2;
+    var a2 = centers[1] - monW / 2, b2 = centers[1] + monW / 2;
+    var coll = [];
+    if (a1 < 0) coll.push([a1, 0]);
+    if (b1 > a2) coll.push([a2, b1]);
+    if (b2 > W) coll.push([W, b2]);
+    coll.forEach(function (s) {
+      el("rect", { x: s[0], y: 6.6, width: Math.max(s[1] - s[0], 0.6), height: 7.4, fill: "url(#hatch-" + id + ")", "class": "pl-coll" }, svg);
+    });
+    return coll.length > 0;
+  }
+
+  var planNow = document.getElementById("plan-now");
+  var planNew = document.getElementById("plan-new");
+  var planMsg = document.getElementById("plan-msg");
+  var segBtns = Array.prototype.slice.call(document.querySelectorAll(".seg button"));
+  function setMonitor(size) {
+    var m = MON[size];
+    drawPlan(planNow, 120, 60, m, false, "now");
+    drawPlan(planNew, 160, 80, m, true, "new");
+    segBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.size === String(size))); });
+    var total = 2 * m, freeNow = 120 - total, freeNew = 160 - total;
+    var s = "Két " + size + "″-os monitor egymás mellett kb. <strong>" + fmt1(total) + " cm</strong>. ";
+    if (freeNow < 0) {
+      s += "A mostani asztal 120 cm széles, vagyis <strong>" + fmt1(-freeNow) + " cm hiányzik</strong>: a monitorok vagy egymásba lógnak, vagy le az asztalról. ";
+    } else {
+      s += "A mostani asztalon ez épp elfér, összesen " + fmt1(freeNow) + " cm marad, szétosztva a monitorok között és mellett. Ez nem tartalék, ez hézag. ";
+    }
+    s += "Az új asztalon <strong>" + fmt1(freeNew) + " cm marad</strong>. A 20 cm-rel nagyobb mélység miatt a monitor és a laptop között végre van egy szabad sáv a jegyzetfüzetnek és a telefonnak.";
+    planMsg.innerHTML = s;
+  }
+  segBtns.forEach(function (b) { b.addEventListener("click", function () { setMonitor(Number(b.dataset.size)); }); });
+
+  /* ---------- HTML bar charts ---------- */
+  function div(cls, parent, style) {
+    var e = document.createElement("div");
+    if (cls) e.className = cls;
+    if (style) e.setAttribute("style", style);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function pct(v, max) { return (v / max * 100).toFixed(3) + "%"; }
+
+  function bars(root, cfg) {
+    root.className = "chart";
+    root.innerHTML = "";
+    var n = cfg.rows.length;
+    var gl = div("c-layer c-gridlayer", root, "grid-row: 1 / " + (n + 1));
+    cfg.ticks.forEach(function (t) { div("c-gl" + (t === 0 ? " base" : ""), gl, "left:" + pct(t, cfg.max)); });
+    cfg.rows.forEach(function (r, i) {
+      var lab = div("c-label", root, "grid-row:" + (i + 1));
+      var b = document.createElement("b"); b.textContent = r.name; lab.appendChild(b);
+      if (r.sub) lab.appendChild(document.createTextNode(r.sub));
+      var tr = div("c-track", root, "grid-row:" + (i + 1));
+      var bar = div("c-bar", tr, "--c:var(" + r.color + ");width:" + pct(r.v, cfg.max));
+      bar.setAttribute("data-tip", r.tip); bar.tabIndex = 0;
+      var end = r.v;
+      if (r.extra) {
+        var ex = div("c-bar self", tr, "left:calc(" + pct(r.v, cfg.max) + " + 2px);width:calc(" + pct(r.extra, cfg.max) + " - 2px)");
+        ex.setAttribute("data-tip", r.extraTip); ex.tabIndex = 0;
+        end += r.extra;
+      }
+      var val = document.createElement("span");
+      val.className = "c-val";
+      val.textContent = r.val;
+      val.style.left = "calc(" + pct(end, cfg.max) + " + 8px)";
+      tr.appendChild(val);
+    });
+    if (cfg.marker) {
+      var ml = div("c-layer c-marklayer", root, "grid-row: 1 / " + (n + 1));
+      var mk = div("c-mark", ml, "left:" + pct(cfg.marker.v, cfg.max));
+      mk.setAttribute("data-tip", cfg.marker.tip);
+    }
+    var ax = div("c-axis", root, "grid-row:" + (n + 1));
+    cfg.ticks.forEach(function (t) {
+      var s = document.createElement("span");
+      s.textContent = cfg.tickFmt ? cfg.tickFmt(t) : t;
+      s.style.left = pct(t, cfg.max);
+      ax.appendChild(s);
+    });
+  }
+
+  bars(document.getElementById("load"), {
+    max: 250, ticks: [0, 50, 100, 150, 200],
+    marker: { v: 25, tip: "Ami ma rajta van: kb. 25 kg (becslés)" },
+    rows: [
+      { name: "Most", sub: "kisebb felületre", v: 15, color: "--s-now", val: "15", tip: "IKEA: kisebb felületre max. 15 kg (pl. egy szorító)" },
+      { name: "Most", sub: "egyenletesen", v: 50, color: "--s-now", val: "50", tip: "IKEA: 50 kg egyenletesen elosztva" },
+      { name: "Új: Liftor Rock", sub: "nettó + a lap súlya", v: 179, extra: 21, color: "--s-new", val: "200", tip: "Liftor Rock: ~179 kg marad nekünk", extraTip: "A lap saját súlya: ~21 kg" }
+    ]
+  });
+
+  bars(document.getElementById("cost"), {
+    max: 18000, ticks: [0, 5000, 10000, 15000], tickFmt: fmt0,
+    rows: [
+      { name: "Új asztal", sub: "169 980 Ft ÷ 5 év ÷ 230 nap", v: 148, color: "--s-new", val: "~148", tip: "Új asztal: ~148 Ft munkanaponként" },
+      { name: "Egy kávé", sub: "a sarkon, kb.", v: 1000, color: "--s-ref", val: "~1 000", tip: "Egy kávé: kb. 1 000 Ft (becslés)" },
+      { name: "Gyógytorna", sub: "egy alkalom, kb.", v: 15000, color: "--s-ref", val: "~15 000", tip: "Egy magán gyógytorna-alkalom: kb. 15 000 Ft (becslés)" }
+    ]
+  });
+
+  /* ---------- Height chart ---------- */
+  var H_MIN = 60, H_MAX = 130;
+  function hp(v) { return ((v - H_MIN) / (H_MAX - H_MIN) * 100).toFixed(3) + "%"; }
+  var hroot = document.getElementById("height");
+  var zl = div("h-zl", hroot, "grid-row:1");
+  var zlSit = document.createElement("span"), zlStand = document.createElement("span");
+  zl.appendChild(zlSit); zl.appendChild(zlStand);
+  var hgl = div("c-layer c-gridlayer", hroot, "grid-row: 2 / 4");
+  [60, 70, 80, 90, 100, 110, 120, 130].forEach(function (t) { div("c-gl" + (t === 60 ? " base" : ""), hgl, "left:" + hp(t)); });
+  var zSit = div("h-zone", hgl), zStand = div("h-zone", hgl);
+
+  var l1 = div("c-label", hroot, "grid-row:2"); l1.innerHTML = "<b>Most</b>fix 73 cm";
+  var t1 = div("c-track", hroot, "grid-row:2");
+  var dot = div("h-dot", t1, "left:" + hp(73)); dot.setAttribute("data-tip", "IKEA: fix 73 cm"); dot.tabIndex = 0;
+  var v1 = document.createElement("span"); v1.className = "c-val"; v1.textContent = "73"; v1.style.left = "calc(" + hp(73) + " + 14px)"; t1.appendChild(v1);
+
+  var l2 = div("c-label", hroot, "grid-row:3"); l2.innerHTML = "<b>Új: Liftor Rock</b>72–120 cm";
+  var t2 = div("c-track", hroot, "grid-row:3");
+  var rng = div("h-range", t2, "left:" + hp(72) + ";width:calc(" + hp(120) + " - " + hp(72) + ")");
+  rng.setAttribute("data-tip", "Liftor Rock: 72–120 cm, 3 memóriapozíció"); rng.tabIndex = 0;
+
+  var hax = div("c-axis", hroot, "grid-row:4");
+  [60, 70, 80, 90, 100, 110, 120, 130].forEach(function (t) {
+    var s = document.createElement("span"); s.textContent = t; s.style.left = hp(t); hax.appendChild(s);
+  });
+
+  var slider = document.getElementById("bodyh");
+  var out = document.getElementById("bodyh-out");
+  var hstatus = document.getElementById("h-status");
+  function pill(kind, text) {
+    var icon = kind === "ok" ? "✓" : kind === "warn" ? "!" : "✕";
+    return '<span class="pill ' + kind + '"><i aria-hidden="true">' + icon + "</i>" + text + "</span>";
+  }
+  function updateHeight() {
+    var H = Number(slider.value);
+    var sit = Math.round(H * 0.405), stand = Math.round(H * 0.625);
+    out.textContent = H + " cm";
+    zSit.style.left = hp(sit - 2); zSit.style.width = "calc(" + hp(sit + 2) + " - " + hp(sit - 2) + ")";
+    zStand.style.left = hp(stand - 2); zStand.style.width = "calc(" + hp(stand + 2) + " - " + hp(stand - 2) + ")";
+    zlSit.textContent = "ülve ~" + sit; zlSit.style.left = hp(sit);
+    zlStand.textContent = "állva ~" + stand; zlStand.style.left = hp(stand);
+
+    var now = [];
+    var dd = 73 - sit;
+    if (Math.abs(dd) <= 3) now.push(pill("ok", "ülve rendben"));
+    else if (dd > 0) now.push(pill("warn", "ülve " + dd + " cm-rel magas"));
+    else now.push(pill("warn", "ülve " + (-dd) + " cm-rel alacsony"));
+    now.push(pill("no", "állva nem megy, a 73 cm fix"));
+
+    var nw = [];
+    if (sit < 72) nw.push(pill("warn", "ülve a minimum 72 cm, ez " + (72 - sit) + " cm-rel magasabb (lábtartó)"));
+    else nw.push(pill("ok", "ülve beállítható (" + sit + " cm)"));
+    if (stand > 120) nw.push(pill("warn", "állva a maximum 120 cm, " + (stand - 120) + " cm hiányzik"));
+    else nw.push(pill("ok", "állva beállítható (" + stand + " cm)"));
+
+    hstatus.innerHTML = '<li><span class="who">Most</span>' + now.join("") + "</li>" +
+                        '<li><span class="who">Új: Liftor Rock</span>' + nw.join("") + "</li>";
+  }
+  slider.addEventListener("input", updateHeight);
+
+  /* ---------- Pips ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".piprow"), function (row) {
+    var n = Number(row.dataset.n);
+    row.setAttribute("role", "img");
+    row.setAttribute("aria-label", n + " az 5-ből");
+    for (var i = 0; i < 5; i++) {
+      var p = document.createElement("i");
+      if (i < n) p.className = "on";
+      row.appendChild(p);
+    }
+  });
+
+  /* ---------- Approval ---------- */
+  var replies = {
+    yes: "Köszönöm! Kérem a dekormintát, lemérem a helyet, és csak utána rendelek. Az összeszerelés napján a pizza az enyém.",
+    cond: "Rögzítve: a kábelek nem lógnak, a régi asztal 30 napon belül eltűnik, és a színt előbb a mintán együtt megnézzük. Ha még valami, írd ide a margóra.",
+    no: "Értem. A kérelmet átdolgozom, és jövő héten újra beadom. Még több grafikonnal."
+  };
+  var cabBtns = Array.prototype.slice.call(document.querySelectorAll(".choices button"));
+  var cabOut = document.getElementById("cab-out");
+  cabBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      cabBtns.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+      cabOut.textContent = replies[b.dataset.r];
+    });
+  });
+
+  /* ---------- Tooltip ---------- */
+  var tip = document.getElementById("tip");
+  function place(x, y) {
+    var r = tip.getBoundingClientRect();
+    var nx = Math.min(Math.max(8, x + 12), window.innerWidth - r.width - 8);
+    var ny = y - r.height - 12;
+    if (ny < 8) ny = y + 16;
+    tip.style.left = nx + "px"; tip.style.top = ny + "px";
+  }
+  function showTip(t, x, y) { tip.textContent = t.getAttribute("data-tip"); tip.hidden = false; place(x, y); }
+  document.addEventListener("pointerover", function (e) {
+    var t = e.target.closest && e.target.closest("[data-tip]");
+    if (t) showTip(t, e.clientX, e.clientY);
+  });
+  document.addEventListener("pointermove", function (e) {
+    if (!tip.hidden && e.target.closest && e.target.closest("[data-tip]")) place(e.clientX, e.clientY);
+  });
+  document.addEventListener("pointerout", function (e) {
+    var t = e.target.closest && e.target.closest("[data-tip]");
+    if (t && !(e.relatedTarget && t.contains(e.relatedTarget))) tip.hidden = true;
+  });
+  document.addEventListener("focusin", function (e) {
+    var t = e.target.closest && e.target.closest("[data-tip]");
+    if (t) { var r = t.getBoundingClientRect(); showTip(t, r.left + r.width / 2, r.top); }
+  });
+  document.addEventListener("focusout", function () { tip.hidden = true; });
+
+  /* ---------- Boot ---------- */
+  setMonitor(27);
+  updateHeight();
+  paintWood();
+  var raf = 0, lastW = 0;
+  function onResize() {
+    var w = slab.clientWidth;
+    if (w === lastW) return;
+    lastW = w;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(paintWood);
+  }
+  if ("ResizeObserver" in window) new ResizeObserver(onResize).observe(document.querySelector(".wrap"));
+  else window.addEventListener("resize", onResize);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { lastW = 0; onResize(); });
+})();
+</script>
