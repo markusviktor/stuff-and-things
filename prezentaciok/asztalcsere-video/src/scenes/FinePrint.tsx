@@ -31,28 +31,28 @@ export const FinePrint: React.FC = () => {
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
         from={24}
-        volume={0.4}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
         from={52}
-        volume={0.4}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
         from={80}
-        volume={0.4}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="page-turn"
         src={staticFile("sfx/page-turn.wav")}
         from={108}
-        volume={0.4}
+        volume={0.8}
         premountFor={fps}
       />
       <SceneHeader

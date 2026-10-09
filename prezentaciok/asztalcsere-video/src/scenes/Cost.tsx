@@ -82,35 +82,35 @@ export const Cost: React.FC = () => {
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={20}
-        volume={0.35}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={32}
-        volume={0.35}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={44}
-        volume={0.35}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
         from={98}
-        volume={0.45}
+        volume={0.7}
         premountFor={fps}
       />
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
         from={120}
-        volume={0.25}
+        volume={0.8}
         premountFor={fps}
       />
       <SceneHeader

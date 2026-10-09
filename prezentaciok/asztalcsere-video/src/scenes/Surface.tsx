@@ -165,7 +165,7 @@ export const Surface: React.FC = () => {
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
         from={18}
-        volume={0.45}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio
@@ -179,21 +179,21 @@ export const Surface: React.FC = () => {
         name="record-scratch"
         src={staticFile("sfx/record-scratch.wav")}
         from={72}
-        volume={0.4}
+        volume={0.6}
         premountFor={fps}
       />
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
         from={132}
-        volume={0.4}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
         from={198}
-        volume={0.4}
+        volume={0.7}
         premountFor={fps}
       />
       <SceneHeader

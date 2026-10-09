@@ -43,14 +43,14 @@ export const Honeycomb: React.FC = () => {
         name="whip"
         src={staticFile("sfx/whip.wav")}
         from={26}
-        volume={0.4}
+        volume={0.85}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={52}
-        volume={0.5}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
@@ -64,21 +64,21 @@ export const Honeycomb: React.FC = () => {
         name="bone-crack"
         src={staticFile("sfx/bone-crack.wav")}
         from={110}
-        volume={0.6}
+        volume={1}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={168}
-        volume={0.4}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={182}
-        volume={0.4}
+        volume={0.75}
         premountFor={fps}
       />
       <SceneHeader

@@ -63,7 +63,7 @@ export const Finale: React.FC = () => {
         name="mouse-click"
         src={staticFile("sfx/mouse-click.wav")}
         from={170}
-        volume={0.7}
+        volume={0.85}
         premountFor={fps}
       />
       <Audio
@@ -77,7 +77,7 @@ export const Finale: React.FC = () => {
         name="ding"
         src={staticFile("sfx/ding.wav")}
         from={196}
-        volume={0.35}
+        volume={0.7}
         premountFor={fps}
       />
       <SceneHeader eyebrow="Jóváhagyás" title="A döntés a tiéd." />

@@ -79,7 +79,7 @@ export const Height: React.FC = () => {
         src={staticFile("audio/motor.wav")}
         from={50}
         durationInFrames={100}
-        volume={0.45}
+        volume={0.3}
         premountFor={fps}
       />
       <Audio
@@ -93,7 +93,7 @@ export const Height: React.FC = () => {
         name="mouse-click"
         src={staticFile("sfx/mouse-click.wav")}
         from={154}
-        volume={0.6}
+        volume={0.85}
         premountFor={fps}
       />
       <Audio
@@ -101,14 +101,14 @@ export const Height: React.FC = () => {
         src={staticFile("audio/motor.wav")}
         from={158}
         durationInFrames={24}
-        volume={0.45}
+        volume={0.3}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
         from={182}
-        volume={0.4}
+        volume={0.7}
         premountFor={fps}
       />
       <SceneHeader

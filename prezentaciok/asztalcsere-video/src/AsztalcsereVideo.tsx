@@ -31,7 +31,7 @@ export const AsztalcsereVideo: React.FC = () => {
       <Audio
         name="Zene"
         src={staticFile("audio/music.mp3")}
-        volume={0.3}
+        volume={0.17}
         premountFor={fps}
       />
       {TRANSITION_STARTS.map((f) => (
@@ -40,7 +40,7 @@ export const AsztalcsereVideo: React.FC = () => {
           name="Átmenet"
           src={staticFile("sfx/whoosh.wav")}
           from={f}
-          volume={0.22}
+          volume={0.5}
           premountFor={fps}
         />
       ))}

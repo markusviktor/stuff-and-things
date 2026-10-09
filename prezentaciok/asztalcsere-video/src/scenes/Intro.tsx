@@ -44,7 +44,7 @@ export const Intro: React.FC = () => {
           name="Field tick"
           src={staticFile("sfx/mouse-click.wav")}
           from={f}
-          volume={0.45}
+          volume={0.6}
           premountFor={fps}
         />
       ))}
@@ -52,7 +52,7 @@ export const Intro: React.FC = () => {
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
         from={34}
-        volume={0.35}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio

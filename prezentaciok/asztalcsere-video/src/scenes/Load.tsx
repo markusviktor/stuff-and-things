@@ -122,28 +122,28 @@ export const Load: React.FC = () => {
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={20}
-        volume={0.35}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={34}
-        volume={0.35}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="switch"
         src={staticFile("sfx/switch.wav")}
         from={54}
-        volume={0.35}
+        volume={0.75}
         premountFor={fps}
       />
       <Audio
         name="mouse-click"
         src={staticFile("sfx/mouse-click.wav")}
         from={124}
-        volume={0.5}
+        volume={0.85}
         premountFor={fps}
       />
       <SceneHeader eyebrow="Hatáselemzés" title="3,5× teherbírás" />

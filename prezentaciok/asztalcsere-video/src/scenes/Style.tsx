@@ -19,21 +19,21 @@ export const Style: React.FC = () => {
         name="womp"
         src={staticFile("audio/womp.wav")}
         from={56}
-        volume={0.5}
+        volume={0.45}
         premountFor={fps}
       />
       <Audio
         name="whoosh"
         src={staticFile("sfx/whoosh.wav")}
         from={88}
-        volume={0.4}
+        volume={0.8}
         premountFor={fps}
       />
       <Audio
         name="ding"
         src={staticFile("sfx/ding.wav")}
         from={140}
-        volume={0.35}
+        volume={0.7}
         premountFor={fps}
       />
       <SceneHeader
