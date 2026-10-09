@@ -36,6 +36,9 @@ A betűk (`public/fonts`) és a diótextúra (`public/wood`, ugyanazzal a rajzol
 npm i
 npm run dev                                   # Remotion Studio
 npx remotion render Asztalcsere out/asztalcsere.mp4 --codec=h264 --crf=20 --audio-codec=aac --audio-bitrate=192k
+# hangerő telefonra (kb. -16 LUFS), limiterrel; a videósáv érintetlen
+ffmpeg -i out/asztalcsere.mp4 -c:v copy -af "volume=5dB,alimiter=limit=0.84:attack=5:release=60:level=disabled" \
+  -c:a aac -b:a 192k -movflags +faststart ../asztalcsere.mp4
 ```
 
 Remotion licenc: magánszemélynek és legfeljebb 3 fős csapatnak ingyenes, a részletek [itt](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
